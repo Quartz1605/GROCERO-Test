@@ -23,11 +23,19 @@ function App() {
         <div className='text-xl text-amber-400'>
           or start a subscription
         </div>
-        <input className='bg-amber-100 mt-8 w-115 rounded-lg h-8 text-black p-4 outline-none' placeholder='Email address'></input>
-        <input className='bg-amber-200 mt-1 w-115 rounded-lg h-8 p-4 text-black outline-none' placeholder='Password'></input>
+        <input className='bg-amber-100 mt-8 w-115 rounded-lg h-8 text-black p-4 outline-none' placeholder='Email address' type='email'></input>
+        <input className='bg-amber-200 mt-1 w-115 rounded-lg h-8 p-4 text-black outline-none' placeholder='Password' type='password'></input>
 
-        <div className='pl-75 mt-2 text-amber-50'>forgot your password?</div>
+        <div className='flex gap-39 pt-1'>
+            <div>
+              New user? Sign up.
+            </div>
+            
+            <div className=''>forgot your password?</div>
+            
+        </div>
 
+        
         <button className='text-black mt-7 w-80 bg-amber-400 hover:bg-amber-500'>Sign in</button>
 
 

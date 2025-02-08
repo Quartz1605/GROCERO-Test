@@ -1,0 +1,68 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+ 
+
+  return (
+    <>
+      <form className='bg-black text-amber-50 max-w-2xl w-2xl h-230 rounded-4xl flex justify-center flex-col items-center'>
+        
+        <a href='https://en.wikipedia.org/wiki/Polar_bear'><img src='https://cdn-icons-png.flaticon.com/128/9112/9112448.png' className='h-15 hover:cursor-pointer'></img></a>
+        
+        
+        
+        <div className='text-5xl text-orange-300 font-serif font-extrabold'>
+          Sign Up
+        </div>
+
+        <div className='mt-2 text-2xl text-violet-600 font-serif font-bold'>I'm about to make your heart race !</div>
+
+        <div className='pr-90 mt-15 font-serif'>Enter Name:</div>
+        <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2'>
+        </input>
+        
+        
+        <div className='pr-85 mt-8 font-serif'>Phone Number :</div>
+        <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2'>
+        </input>
+
+        <div className='pr-87 mt-8 font-serif'>Email address :</div>
+        <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2' type='email'>
+        </input>
+
+        <div className='pr-88 mt-8 font-serif'>Set Password :</div>
+        <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2' type='text'>
+        </input>
+
+        <div className='pr-80 mt-8 font-serif'>Confirm Password :</div>
+        <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2' type='password'>
+        </input>
+
+        <div className='pl-85 pt-2 font-serif hover:cursor-pointer'>Sign in perhaps?</div>
+
+        <button className='mt-10 w-50 font-serif'>
+          Submit
+        </button>
+
+
+
+
+
+      
+
+        
+        
+
+
+
+        
+
+      </form>
+    </>
+  )
+}
+
+export default App
