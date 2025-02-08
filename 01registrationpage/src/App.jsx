@@ -20,28 +20,28 @@ function App() {
 
         <div className='mt-2 text-2xl text-violet-600 font-serif font-bold'>I'm about to make your heart race !</div>
 
-        <div className='pr-90 mt-15 font-serif'>Enter Name:</div>
+        <div className='pr-90 mt-15'>Enter Name:</div>
         <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2'>
         </input>
         
         
-        <div className='pr-85 mt-8 font-serif'>Phone Number :</div>
+        <div className='pr-85 mt-8'>Phone Number :</div>
         <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2'>
         </input>
 
-        <div className='pr-87 mt-8 font-serif'>Email address :</div>
+        <div className='pr-87 mt-8'>Email address :</div>
         <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2' type='email'>
         </input>
 
-        <div className='pr-88 mt-8 font-serif'>Set Password :</div>
+        <div className='pr-88 mt-8'>Set Password :</div>
         <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2' type='text'>
         </input>
 
-        <div className='pr-80 mt-8 font-serif'>Confirm Password :</div>
+        <div className='pr-80 mt-8'>Confirm Password :</div>
         <input className='bg-amber-200 text-black w-115 rounded-lg h-8 pl-2 outline-none mt-2' type='password'>
         </input>
 
-        <div className='pl-85 pt-2 font-serif hover:cursor-pointer'>Sign in perhaps?</div>
+        <div className='pl-85 pt-2 hover:cursor-pointer'><b>Sign in</b> perhaps?</div>
 
         <button className='mt-10 w-50 font-serif'>
           Submit
