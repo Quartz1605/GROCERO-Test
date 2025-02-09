@@ -1,10 +1,13 @@
 
-
+import { useState } from 'react-dom'
 import { Link } from 'react-router-dom';
 
 function Signup() {
- 
+  
 
+
+  
+  
   return (
     <>
       <form className='bg-black text-amber-50 max-w-2xl w-2xl h-230 rounded-4xl flex justify-center flex-col items-center'>
