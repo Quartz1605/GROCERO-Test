@@ -4,11 +4,10 @@ For Testing purposes of website.
 Follow these steps to set up and run both the Django backend and React frontend on your local machine.
 
 ### 📌 Prerequisites
-Make sure you have the following installed on your system:
-✅ Python (3.x)
-✅ Node.js (latest LTS recommended)
-✅ Git
-✅ PostgreSQL (if required)
+Make sure you have the following installed on your system: <br>
+✅ Python (3.x) <br>
+✅ Node.js (latest LTS recommended)<br>
+✅ Git<br>
 
 ### 🔹 Step 1: Clone the Repository
 First, clone the repository to your local machine:
@@ -77,7 +76,7 @@ npm run dev
 ```
 Your React frontend should now be running at http://localhost:5173/
 
-###🎯 Done!
+### 🎯 Done! 
 Now, both the Django backend and React frontend should be up and running. 🚀
 
 
