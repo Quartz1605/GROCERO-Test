@@ -35,7 +35,7 @@ function Signup() {
   
       if (response.ok) {
         alert('Registration successful!');
-        navigate('/home', { state: { email: data.email, name: data.name, phone: data.phone, username: data.username } });
+        navigate('/', { state: { email: data.email, name: data.name, phone: data.phone, username: data.username } });
       } else {
         setError(data.detail || data.message || JSON.stringify(data));
       }
