@@ -30,11 +30,11 @@ function Login() {
           or start a subscription
         </div>
         
-        <input className='bg-amber-100 mt-8 w-115 rounded-lg h-8 text-black p-4 outline-none ' placeholder='Email address' type='email' onChange={(e) => {setEmail(e.target.value)}}></input>
+        <input className='bg-gray-100 mt-6 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' type='email' onChange={(e) => {setEmail(e.target.value)}} placeholder='Email'></input>
         
-        <input className='bg-amber-200 mt-1 w-115 rounded-lg h-8 p-4 text-black outline-none' placeholder='Password' type='password' onChange={(e) => {setPassword(e.target.value)}}></input>
+        <input className='bg-gray-100 mt-2 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' placeholder='Password' type='password' onChange={(e) => {setPassword(e.target.value)}}></input>
 
-        <div className='flex gap-39 pt-1'>
+        <div className='flex gap-74 pt-1'>
             <div>
               New user? <Link to="/signup">Sign Up.</Link>
             </div>
@@ -44,7 +44,7 @@ function Login() {
         </div>
 
         
-        <button className='text-white mt-7 w-80 bg-amber-400 hover:bg-amber-500'>Sign in</button>
+        <button className='mt-7 w-80 bg-amber-400 hover:bg-amber-400 focus:ring-1 focus:ring-amber-500'>Sign in</button>
 
 
 
