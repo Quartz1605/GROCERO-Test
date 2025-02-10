@@ -1,3 +1,5 @@
+import key from '../assets/key.png'
+import { IoPerson } from "../assets/react-icons/io5";
 import { useState } from 'react'
 
 import { Link } from 'react-router-dom'
@@ -30,9 +32,16 @@ function Login() {
           or start a subscription
         </div>
         
-        <input className='bg-gray-100 mt-6 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' type='email' onChange={(e) => {setEmail(e.target.value)}} placeholder='Email'></input>
-        
-        <input className='bg-gray-100 mt-2 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' placeholder='Password' type='password' onChange={(e) => {setPassword(e.target.value)}}></input>
+        <div className="flex items-center p-2 relative">
+          <IoPerson class="text-amber-400 w-7 h-7 mr-2 object-contain absolute left-5 top-1/2 transform -translate-y-1/2 mt-3"></IoPerson>
+          <input className='pl-12 bg-gray-100 mt-6 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' type='email' onChange={(e) => {setEmail(e.target.value)}} placeholder='Email'></input>
+        </div>
+
+        <div className="flex items-center p-2 relative">
+          <img src={key} class="text-amber-400 w-7 h-7 mr-2 object-contain absolute left-5 top-1/2 transform -translate-y-1/2 mt-3"></img>
+          <input type='password' className='pl-12 bg-gray-100 mt-6 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' onChange={(e) => {setPassword(e.target.value)}} placeholder='Password'></input>
+        </div>
+
 
         <div className='flex gap-74 pt-1'>
             <div>
