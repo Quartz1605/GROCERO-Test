@@ -47,7 +47,7 @@ function Signup() {
   
         if (response.ok) {
           
-          navigate('/', { state: { email: data.email, name: data.name, phone: data.phone, username: data.username } });
+          navigate('/home', { state: { email: data.email, name: data.name, phone: data.phone, username: data.username } });
         } else {
         setError(data.detail || data.message || JSON.stringify(data));
         }
