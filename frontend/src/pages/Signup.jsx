@@ -1,5 +1,8 @@
 import { useState,useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import UserContext from '../../contexts/UserContext';
+
 
 function Signup() {
   const navigate = useNavigate();
@@ -12,9 +15,19 @@ function Signup() {
   const [phone, setPhone] = useState('');
   const [error, setError] = useState(null);
 
+  const {setUser} = useContext(UserContext)
+  
+
   const handleSignup = async (e) => {
     e.preventDefault();
 
+    setUser({username,fullName})
+
+    
+    
+    
+    
+    
     if(password !== cpassword){
       document.querySelector("#result").innerHTML = `Input Password and confirm Password don't match!`
     }
