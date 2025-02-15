@@ -124,7 +124,7 @@ function Signup() {
           <input className='bg-gray-100 w-150 rounded-lg h-12 text-gray-800 px-4 outline-none border border-amber-300 focus:ring-1 focus:ring-amber-400' placeholder='Confirm Password' value={cpassword} type='password' onChange={(e) => setcPassword(e.target.value)}></input>
         </div>
 
-        <div className='pl-85 pt-2 hover:cursor-pointer ml-40'><b><Link to="/">Login.</Link></b> perhaps?</div>
+        <div className='pl-85 pt-2 hover:cursor-pointer ml-40'><b><Link to="/login">Login.</Link></b> perhaps?</div>
 
         <div id="result" className='text-amber-300'></div>
 
