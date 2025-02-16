@@ -1,22 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom'; 
-import { useContext } from 'react';
-import UserContext from '../../contexts/UserContext';
-import groLogo from '../assets/groceroLogo.png'
-import pfp from '../assets/pfp.jpg'
-import cart from '../assets/cart.png'
-import searchIcon from '../assets/searchIcon.png'
-import banner from '../assets/banner.jpg'
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import groLogo from './assets/groceroLogo.png'
+import pfp from './assets/pfp.jpg'
+import cart from './assets/cart.png'
+import searchIcon from './assets/searchIcon.png'
+import banner from './assets/banner.jpg'
 
+function App() {
+  const [count, setCount] = useState(0)
 
-function Home(){
-
-  const {user} = useContext(UserContext)
-  
-  
-  return(
+  return (
     <>
-    
-    <head>
+      
+      <head>
         <link href="/styles.css" rel="stylesheet"></link>
       </head>
 
@@ -140,12 +138,9 @@ function Home(){
         
 
       </body>
-    
+
     </>
   )
-
-
-
 }
 
-export default Home
+export default App
