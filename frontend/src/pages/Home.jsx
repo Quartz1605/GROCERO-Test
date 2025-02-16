@@ -33,7 +33,7 @@ function Home(){
           <div className='flex flex-row justify-between'>
             {/* Pic and Cart */}
               <img className='h-10 rounded-full ml-5' src={pfp} ></img>
-              {user ? user.name : "Guest"} {/* Temperory to show username */}
+              {user ? user.username : "Guest"} {/* Temperory to show username */}
               <img className='h-10 ml-5 mr-5' src={cart}></img>
           </div>
 
