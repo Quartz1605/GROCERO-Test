@@ -33,11 +33,12 @@ function Home(){
           <div className='flex flex-row justify-between'>
             {/* Pic and Cart */}
               <img className='h-10 rounded-full ml-5' src={pfp} ></img>
+              {user ? user.name : "Guest"} {/* Temperory to show username */}
               <img className='h-10 ml-5 mr-5' src={cart}></img>
           </div>
 
         </div>
-
+        
         <div className='flex justify-center items-center max-w-7xl h-20 ml-20 mr-20 mt-50 mb-0'>
           <img className='object-contain' src={banner}></img>
         </div>
