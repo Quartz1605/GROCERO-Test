@@ -33,7 +33,7 @@ function Login3() {
 
         {/* Subtitle */}
         <div className="text-lg text-gray-600 mb-8">
-          Sign in to continue to GRÓCERÓ
+          Sign in to continue to GROCERÓ
         </div>
 
         {/* Email Input */}
