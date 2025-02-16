@@ -9,6 +9,19 @@ from .serializers import RegisterSerializer, UserSerializer, MyTokenObtainPairSe
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
+    def post(self, request, *args, **kwargs):
+        print("🔹 Login Attempt Received:", request.data)
+
+        serializer = self.get_serializer(data=request.data)
+
+        if not serializer.is_valid():
+            print("❌ Login Validation Error:", serializer.errors)  # Debugging
+            return Response({"error": "Invalid username or password."}, status=status.HTTP_400_BAD_REQUEST)
+
+        response = super().post(request, *args, **kwargs)
+        print("✅ Login Successful:")
+        return response
+
 # 🔹 User Registration View
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
