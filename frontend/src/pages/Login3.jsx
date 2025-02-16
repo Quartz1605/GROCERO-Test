@@ -49,8 +49,12 @@ function Login3() {
     }
   }
 
+  const bgImage = 'url(https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)'
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#fff5f7]">
+    <div className="min-h-screen flex items-center justify-center bg-[#fff5f7]" style={{backgroundImage:bgImage,backgroundSize: 'cover',backgroundPosition: 'center',
+      minHeight: '100vh',
+      width: '100%'}}>
       <form
         className="bg-white max-w-md w-full rounded-2xl p-8 shadow-lg flex flex-col items-center"
         onSubmit={handleSubmit}

@@ -3,12 +3,18 @@ import { useContext } from 'react';
 import UserContext from '../../contexts/UserContext';
 import groLogo from '../assets/groceroLogo.png'
 import pfp from '../assets/pfp.jpg'
-import cart from '../assets/cart.png'
-import searchIcon from '../assets/searchIcon.png'
+
 import banner from '../assets/banner.jpg'
 import { IoPerson, IoSearch } from "../assets/react-icons/io5"
 import { GiShoppingCart } from "../assets/react-icons/gi";
 
+import Vegetables from './HomePage/Vegetables';
+import Dairy from './HomePage/Dairy';
+import Atta from './HomePage/Atta';
+import Meat from './HomePage/Meat';
+import DryFruits from './HomePage/DryFruits';
+import Sauces from './HomePage/Sauces';
+import Packaged from './HomePage/Packaged';
 
 
 function Home() {
@@ -23,8 +29,8 @@ function Home() {
         <link href="/styles.css" rel="stylesheet"></link>
       </head>
 
-      <body className='bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-start'>
-        <div className='flex flex-row justify-between absolute top-0 left-0 right-0 h-20 items-center'>
+      <body className='bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center'>
+        <div className='flex flex-row    justify-between absolute top-0 left-0 right-0 h-20 items-center'>
           {/* Navigation Bar */}
           <img src={groLogo} className='h-15 ml-5'></img>
 
@@ -47,54 +53,34 @@ function Home() {
             <GiShoppingCart className='text-[#F9429E] h-10.5 w-13 hover:cursor-pointer' />
           </div>
 
-          
-
         </div>
 
-        <div className='flex justify-center items-center max-w-7xl h-20 ml-20 mr-20 mt-50 mb-0'>
+        
+
+        <div className='flex-column justify-center items-center max-w-7xl h-20 ml-20 mr-20 mt-25 mb-0 inline-block'>
+          <p className='text-center mb-10 text-2xl'>Welcome <b className='text-[#F9429E]'>{user ? user.username:"Guest"}</b> !</p>
           <img className='object-contain' src={banner}></img>
         </div>
 
         {/* Grocery and Kitchen */}
-        <div className='flex flex-col justify-start mt-25'>
-          <p className='text-black text-2xl font-bold'>Grocery and Kitchen</p>
+        <div className='flex flex-col justify-center mt-60 items-center'>
+          <p className='text-[#F9429E] text-2xl font-bold text-center'>Grocery and Kitchen</p>
 
-          <div className='flex flex-row gap-6'>
+          <div className='flex flex-row gap-6 mt-4 pl-3'>
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Fruits and Vegetables</p>
-            </div>
+            <Vegetables />
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Dairy, Bread, and Eggs</p>
-            </div>
+            <Dairy />
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Atta, Rice, Oil and Dals</p>
-            </div>
+            <Atta />
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Meat, Fish and Eggs</p>
-            </div>
+            <Meat />
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Masala and Dry Fruits</p>
-            </div>
+            <DryFruits />
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Breakfast and Sauces</p>
-            </div>
+            <Sauces />
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Packaged Food</p>
-            </div>
+            <Packaged />
 
           </div>
 
