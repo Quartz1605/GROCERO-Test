@@ -8,14 +8,9 @@ import banner from '../assets/banner.jpg'
 import { IoPerson, IoSearch } from "../assets/react-icons/io5"
 import { GiShoppingCart } from "../assets/react-icons/gi";
 
-import Vegetables from './Home/Vegetables';
-import Dairy from './Home/Dairy';
-import Atta from './Home/Atta';
-import Meat from './Home/Meat';
-import DryFruits from './Home/DryFruits';
-import Sauces from './Home/Sauces';
-import Packaged from './Home/Packaged';
+
 import ProductSlider from './Home/ProductSlider';
+import ProductSlider2 from './Home/ProductSlider2';
 
 
 function Home() {
@@ -73,52 +68,12 @@ function Home() {
         </div>
 
         {/*Snacks and Drinks*/}
-        <div className='flex flex-col justify-start mt-15'>
-          <p className='text-black text-2xl font-bold'>Snacks and Drinks</p>
+        <div className='flex flex-col justify-start mt-15 items-center'>
+          <p className='text-[#F9429E] text-2xl font-bold pb-8'>Snacks and Drinks</p>
 
-          <div className='flex flex-row gap-6'>
+          
 
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Zepto Cafe</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Tea, Coffee and More</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Ice Creams and More</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Frozen Foods</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Sweet Cravings</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Cold Drinks and Juices</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Munchies</p>
-            </div>
-
-            <div className='flex flex-col gap-3 mt-4 items-center'>
-              <img className='h-32 object-contain' src={pfp}></img>
-              <p className='text-black text-2xl font-bold max-w-40 text-center break-words whitespace-normal'>Biscuits and Cookies</p>
-            </div>
-
-          </div>
+          <ProductSlider2 />
 
         </div>
 

@@ -8,34 +8,34 @@ import { Navigation, Autoplay } from "swiper/modules";
 export default function ProductSlider2() {
   const products = [
     {
-      title: "Dry Fruits and Milk Products",
+      title: "Tea, Coffee and More",
       image:
-        "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
-      title: "Dairy, Bread, and Eggs",
+      title: "Ice Creams and More",
       image:
-        "https://images.pexels.com/photos/1556707/pexels-photo-1556707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/161420/ice-cream-cone-melting-hot-ice-cream-scoop-161420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
     {
-      title: "Atta, Rice, Oil and Dals",
+      title: "Frozen Foods",
       image:
-        "https://images.pexels.com/photos/7421198/pexels-photo-7421198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://img.freepik.com/free-photo/top-view-raw-fish-slices-with-ice-wood-board-table_179666-46565.jpg?t=st=1739810055~exp=1739813655~hmac=f2a46dc20c978bc72945783a86ddca76d776f904f59601e7247c3ab19ed18973&w=1800",
     },
     {
-      title: "Meat, Fish and Eggs",
+      title: "Sweet Cravings",
       image:
-        "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1906435/pexels-photo-1906435.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
-      title: "Breakfast and Sauces",
+      title: "Cold Drinks and Juices",
       image:
-        "https://images.pexels.com/photos/1124038/pexels-photo-1124038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1662238/pexels-photo-1662238.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
     {
-      title: "Packaged Foods and More",
+      title: "Munchies",
       image:
-        "https://images.pexels.com/photos/1582482/pexels-photo-1582482.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/7196444/pexels-photo-7196444.jpeg?auto=compress&cs=tinysrgb&w=800",
     },
   ];
 
@@ -46,7 +46,7 @@ export default function ProductSlider2() {
         spaceBetween={20}
         slidesPerView={4}
         navigation
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 3900 }}
         loop
         breakpoints={{
           320: { slidesPerView: 1 },
