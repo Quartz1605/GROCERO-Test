@@ -18,7 +18,7 @@ export default function DryFruits(
       <div className="px-5 pb-3">
         <a href="/">
           <h5 className="text-3xl font-semibold tracking-tight text-white dark:text-white text-center mb-3">
-            Dry Fruits
+            Dry Fruits and Milk Products
           </h5>
         </a>
       </div>

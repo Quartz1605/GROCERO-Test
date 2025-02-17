@@ -8,13 +8,14 @@ import banner from '../assets/banner.jpg'
 import { IoPerson, IoSearch } from "../assets/react-icons/io5"
 import { GiShoppingCart } from "../assets/react-icons/gi";
 
-import Vegetables from './HomePage/Vegetables';
-import Dairy from './HomePage/Dairy';
-import Atta from './HomePage/Atta';
-import Meat from './HomePage/Meat';
-import DryFruits from './HomePage/DryFruits';
-import Sauces from './HomePage/Sauces';
-import Packaged from './HomePage/Packaged';
+import Vegetables from './Home/Vegetables';
+import Dairy from './Home/Dairy';
+import Atta from './Home/Atta';
+import Meat from './Home/Meat';
+import DryFruits from './Home/DryFruits';
+import Sauces from './Home/Sauces';
+import Packaged from './Home/Packaged';
+import ProductSlider from './Home/ProductSlider';
 
 
 function Home() {
@@ -63,26 +64,11 @@ function Home() {
         </div>
 
         {/* Grocery and Kitchen */}
-        <div className='flex flex-col justify-center mt-60 items-center'>
-          <p className='text-[#F9429E] text-2xl font-bold text-center'>Grocery and Kitchen</p>
+        <div className='flex flex-col justify-center mt-68 items-center'>
+          <p className='text-[#F9429E] text-2xl font-bold text-center pb-8'>Grocery and Kitchen</p>
 
-          <div className='flex flex-row gap-6 mt-4 pl-3'>
-
-            <Vegetables />
-
-            <Dairy />
-
-            <Atta />
-
-            <Meat />
-
-            <DryFruits />
-
-            <Sauces />
-
-            <Packaged />
-
-          </div>
+          <ProductSlider />
+          
 
         </div>
 
