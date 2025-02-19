@@ -1,8 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 import UserContext from '../../contexts/UserContext';
-import groLogo from '../assets/groceroLogo.png'
-import pfp from '../assets/pfp.jpg'
+import groLogo from '../assets/groceroLogo.png';
+import { useEffect } from 'react';
+
 
 import banner from '../assets/banner.jpg'
 import { IoPerson, IoSearch } from "../assets/react-icons/io5"
@@ -11,21 +12,31 @@ import { GiShoppingCart } from "../assets/react-icons/gi";
 
 import ProductSlider from './Home/ProductSlider';
 import ProductSlider2 from './Home/ProductSlider2';
+import UserLocation from './Home/UserLocation';
 
 
 function Home() {
 
   const { user } = useContext(UserContext)
+  
+  const [isModalOpen,setIsModalOpen] = useState(false)
 
+  
+  /*if(user.homeAddress){
+    setbuttonView("Delivering to Home.")
+  }*/
+  
+
+  
+
+  
 
   return (
     <>
 
-      <head>
-        <link href="/styles.css" rel="stylesheet"></link>
-      </head>
+      
 
-      <body className='bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center'>
+      <div className='bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center h-screen'>
         <div className='flex flex-row    justify-between absolute top-0 left-0 right-0 h-20 items-center'>
           {/* Navigation Bar */}
           <img src={groLogo} className='h-15 ml-5'></img>
@@ -40,11 +51,19 @@ function Home() {
               required
             />
 
+            <button className='bg-[#F9429E] ml-3 rounded-xl p-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]' onClick={() => setIsModalOpen(true)}>
+              {user.homeAddress ? `Delivering to "Home" ❤️` : "Set Address."}
+            </button>
+
+            <UserLocation isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
             <img className='h-10 rounded-full w-10 ml-5 hover:cursor-pointer' src="https://images.pexels.com/photos/21699301/pexels-photo-21699301/free-photo-of-silhouette-of-man-by-the-lake.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" ></img>
             
-            <div className='ml-2 hover:cursor-pointer hover:underline'>
+            <Link to="/home/profile">
+              <div className='ml-2 hover:cursor-pointer hover:underline'>
               {user ? user.username : "Guest"} {/* Temperory to show username */}
-            </div>
+              </div>
+            </Link>
             
             <GiShoppingCart className='text-[#F9429E] h-10.5 w-13 hover:cursor-pointer' />
           </div>
@@ -77,9 +96,10 @@ function Home() {
 
         </div>
 
+        <h4 className='mt-5 mb-15'>Things are to be added.....</h4>
 
 
-      </body>
+      </div>
 
     </>
   )
