@@ -52,7 +52,7 @@ function Home() {
             />
 
             <button className='bg-[#F9429E] ml-3 rounded-xl p-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]' onClick={() => setIsModalOpen(true)}>
-              {user.homeAddress ? `Delivering to "Home" ❤️` : "Set Address."}
+              {user.homeAddress ? `Delivering to "Home🤍" ` : "Set Address."}
             </button>
 
             <UserLocation isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
