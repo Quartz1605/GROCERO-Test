@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserProvider = ({children}) => {
 
-  const [user,setUser] = useState(null)  
+  const [user,setUser] = useState({homeAddress : "",username : "Guest"})  
   
   return(
 
