@@ -5,7 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
 
-export default function ProductSlider() {
+export default function ProductSlider3() {
   const products = [
     {
       name: "boAt 10000mAh Power Bank",
@@ -107,10 +107,10 @@ export default function ProductSlider() {
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            <div className="w-64 h-96 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <div className="w-64 h-96 bg-[#eeeeee] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-white/30">
               <div className="relative">
                 {/* Discount Badge */}
-                <span className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm">
+                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-1 py-1 rounded text-sm">
                   {product.discount} OFF
                 </span>
 
@@ -134,7 +134,7 @@ export default function ProductSlider() {
                 </h3>
 
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-2xl font-bold text-red-500">
+                  <span className="text-2xl font-bold text-[#F9429E]">
                     ₹{product.discountedPrice}
                   </span>
                   <span className="text-gray-500 line-through">
@@ -142,7 +142,7 @@ export default function ProductSlider() {
                   </span>
                 </div>
 
-                <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors">
+                <button className="w-full bg-[#F9429E] text-white py-2 rounded hover:bg-[#F400A1] transition-colors hover:cursor-pointer">
                   Add to Cart
                 </button>
               </div>

@@ -1,41 +1,23 @@
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+
 import UserContext from "../../contexts/UserContext";
 import groLogo from "../assets/groceroLogo.png";
 import pfp from "../assets/pfp.jpg";
-=======
-import { Link, useNavigate } from 'react-router-dom';
-import { useContext,useState } from 'react';
-import UserContext from '../../contexts/UserContext';
-import groLogo from '../assets/groceroLogo.png';
-import { useEffect } from 'react';
 
->>>>>>> 53fc8b07c955ec31515793721c800a52834b84c8
+
+import { useContext,useState } from 'react';
+
+
+
+
 
 import banner from "../assets/banner.jpg";
 import { IoPerson, IoSearch } from "../assets/react-icons/io5";
 import { GiShoppingCart } from "../assets/react-icons/gi";
 
-<<<<<<< HEAD
 import ProductSlider from "./Home/ProductSlider";
 import ProductSlider2 from "./Home/ProductSlider2";
-
-function Home() {
-  const { user } = useContext(UserContext);
-
-  return (
-    <>
-      <head>
-        <link href="/styles.css" rel="stylesheet"></link>
-      </head>
-
-      <body className="bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center">
-        <div className="flex flex-row    justify-between absolute top-0 left-0 right-0 h-20 items-center">
-=======
-
-import ProductSlider from './Home/ProductSlider';
-import ProductSlider2 from './Home/ProductSlider2';
+import ProductSlider3 from "./Home/ProductSlider3";
 import UserLocation from './Home/UserLocation';
 
 
@@ -46,9 +28,7 @@ function Home() {
   const [isModalOpen,setIsModalOpen] = useState(false)
 
   
-  /*if(user.homeAddress){
-    setbuttonView("Delivering to Home.")
-  }*/
+  
   
 
   
@@ -56,13 +36,13 @@ function Home() {
   
 
   return (
-    <>
+    
 
       
 
-      <div className='bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center h-screen'>
-        <div className='flex flex-row    justify-between absolute top-0 left-0 right-0 h-20 items-center'>
->>>>>>> 53fc8b07c955ec31515793721c800a52834b84c8
+      <div className='bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center   h-screen'>
+        <div className='flex flex-row justify-between absolute top-0 left-0 right-0 h-20 items-center'>
+
           {/* Navigation Bar */}
           <img src={groLogo} className="h-15 ml-5"></img>
 
@@ -76,12 +56,9 @@ function Home() {
               required
             />
 
-<<<<<<< HEAD
-            <img
-              className="h-10 rounded-full w-10 ml-5 hover:cursor-pointer"
-              src="https://images.pexels.com/photos/21699301/pexels-photo-21699301/free-photo-of-silhouette-of-man-by-the-lake.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
-            ></img>
-=======
+
+            
+            
             <button className='bg-[#F9429E] ml-3 rounded-xl p-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]' onClick={() => setIsModalOpen(true)}>
               {user.homeAddress ? `Delivering to "Home🤍" ` : "Set Address."}
             </button>
@@ -98,15 +75,9 @@ function Home() {
             
             <GiShoppingCart className='text-[#F9429E] h-10.5 w-13 hover:cursor-pointer' />
           </div>
->>>>>>> 53fc8b07c955ec31515793721c800a52834b84c8
 
-            <div className="ml-2 hover:cursor-pointer hover:underline">
-              {user ? user.username : "Guest"}{" "}
-              {/* Temperory to show username */}
-            </div>
 
-            <GiShoppingCart className="text-[#F9429E] h-10.5 w-13 hover:cursor-pointer" />
-          </div>
+            
         </div>
 
         <div className="flex-column justify-center items-center max-w-7xl h-20 ml-20 mr-20 mt-25 mb-0 inline-block">
@@ -133,23 +104,24 @@ function Home() {
           </p>
           <ProductSlider2 />
         </div>
-<<<<<<< HEAD
-        <div className="flex flex-col justify-center mt-68 items-center">
+
+        <div className="flex flex-col justify-center mt-15 items-center">
           <p className="text-[#F9429E] text-2xl font-bold text-center pb-8">
             Get Your Home Needs
           </p>
           <ProductSlider3 />
         </div>
-      </body>
-=======
+      
+
 
         <h4 className='mt-5 mb-15'>Things are to be added.....</h4>
 
-
       </div>
 
->>>>>>> 53fc8b07c955ec31515793721c800a52834b84c8
-    </>
+
+      
+
+
   );
 }
 
