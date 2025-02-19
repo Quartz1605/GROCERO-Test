@@ -37,6 +37,7 @@ function Login3() {
 
         // Store user data in context
         setUser({ username });
+        localStorage.setItem("username",username)
 
         // Navigate to home page
         navigate("/home");

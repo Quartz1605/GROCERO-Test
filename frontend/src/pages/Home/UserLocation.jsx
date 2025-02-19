@@ -4,6 +4,7 @@ import UserContext from "../../../contexts/UserContext";
 const UserLocation = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
+  const [homeAdd,sethomeAdd] = useState("")
 
   
 
@@ -46,6 +47,8 @@ const UserLocation = ({ isOpen, onClose }) => {
         let address = data.display_name;
         document.getElementById("locationDisplay").innerHTML = `Current Location: ${address}
         `;
+        sethomeAdd(address)
+        localStorage.setItem("homeAddress",address)
         
         
         setUser((prevUser) => ({
