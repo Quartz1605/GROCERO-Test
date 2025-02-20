@@ -10,6 +10,7 @@ import Login3 from './pages/Login3';
 import Signup3 from './pages/Signup3';
 
 import Profile from './pages/Profile';
+import DryFruits from './pages/Dryfruits';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +26,7 @@ function App() {
         <Route path="/signup" element={<Signup3 />} />
         <Route path="/home" element={<Home />} />
         <Route path="/home/profile" element={<Profile />} />
+        <Route path="/home/dryfruits" element={<DryFruits />} />
 
       </Routes>
     </Router>

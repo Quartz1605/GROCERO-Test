@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <div className="bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center   h-screen">
-      <div className="flex flex-row justify-between absolute top-0 left-0 right-0 h-20 items-center">
+      <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50 backdrop-blur-md">
         {/* Navigation Bar */}
         <img src={groLogo} className="h-15 ml-5"></img>
 

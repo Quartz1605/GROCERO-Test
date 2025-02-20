@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 export default function ProductSlider() {
   const products = [
@@ -11,7 +12,9 @@ export default function ProductSlider() {
       title: "Dry Fruits and Milk Products",
       image:
         "https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
+      link : "/home/dryfruits"
+    
+      },
     {
       title: "Dairy, Bread, and Eggs",
       image:
@@ -58,13 +61,13 @@ export default function ProductSlider() {
         {products.map((product, index) => (
           <SwiperSlide key={index}>
             <div className="w-64 h-80 bg-[#eeeeee] backdrop-blur-lg border border-white/30 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-              <a href="/">
+              <Link to={product.link}>
                 <img
                   className="w-full h-48 object-cover rounded-t-lg"
                   src={product.image}
                   alt={product.title}
                 />
-              </a>
+              </Link>
               <div className="px-4 py-2 flex-grow flex items-center">
                 <h5 className="font-semibold text-black text-center line-clamp-2 leading-tight text-2xl">
                   {product.title}
