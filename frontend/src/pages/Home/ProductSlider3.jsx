@@ -12,7 +12,7 @@ export default function ProductSlider3() {
       discount: "60%",
       originalPrice: "1999",
       discountedPrice: "1199",
-      image: "",
+      image: "https://example.com/power-bank.jpg",
       alt: "Power Bank",
     },
     {
@@ -20,7 +20,7 @@ export default function ProductSlider3() {
       discount: "50%",
       originalPrice: "999",
       discountedPrice: "499",
-      image: "",
+      image: "https://example.com/charger.jpg",
       alt: "Charger",
     },
     {
@@ -28,7 +28,7 @@ export default function ProductSlider3() {
       discount: "30%",
       originalPrice: "299",
       discountedPrice: "209",
-      image: "",
+      image: "https://example.com/usb-cable.jpg",
       alt: "USB Cable",
     },
     {
@@ -36,7 +36,7 @@ export default function ProductSlider3() {
       discount: "40%",
       originalPrice: "1499",
       discountedPrice: "899",
-      image: "",
+      image: "https://example.com/wireless-charger.jpg",
       alt: "Wireless Charger",
     },
     {
@@ -44,7 +44,7 @@ export default function ProductSlider3() {
       discount: "25%",
       originalPrice: "799",
       discountedPrice: "599",
-      image: "",
+      image: "https://example.com/usb-hub.jpg",
       alt: "USB Hub",
     },
     {
@@ -52,7 +52,7 @@ export default function ProductSlider3() {
       discount: "20%",
       originalPrice: "1299",
       discountedPrice: "1039",
-      image: "",
+      image: "https://example.com/desk-lamp.jpg",
       alt: "Desk Lamp",
     },
     {
@@ -60,7 +60,7 @@ export default function ProductSlider3() {
       discount: "35%",
       originalPrice: "2999",
       discountedPrice: "1949",
-      image: "",
+      image: "https://example.com/bluetooth-speaker.jpg",
       alt: "Bluetooth Speaker",
     },
     {
@@ -68,7 +68,7 @@ export default function ProductSlider3() {
       discount: "15%",
       originalPrice: "1499",
       discountedPrice: "1274",
-      image: "",
+      image: "https://example.com/smart-plug.jpg",
       alt: "Smart Plug",
     },
     {
@@ -76,7 +76,7 @@ export default function ProductSlider3() {
       discount: "10%",
       originalPrice: "899",
       discountedPrice: "809",
-      image: "",
+      image: "https://example.com/emergency-light.jpg",
       alt: "Emergency Light",
     },
     {
@@ -84,7 +84,7 @@ export default function ProductSlider3() {
       discount: "30%",
       originalPrice: "499",
       discountedPrice: "349",
-      image: "",
+      image: "https://example.com/extension-cord.jpg",
       alt: "Extension Cord",
     },
   ];
@@ -109,8 +109,8 @@ export default function ProductSlider3() {
           <SwiperSlide key={index}>
             <div className="w-64 h-96 bg-[#eeeeee] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-white/30">
               <div className="relative">
-                {/* Discount Badge */}
-                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-1 py-1 rounded text-sm">
+                {/* Enhanced Discount Badge */}
+                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-3 py-1 rounded-full text-sm font-bold z-10 shadow-md">
                   {product.discount} OFF
                 </span>
 
@@ -123,13 +123,14 @@ export default function ProductSlider3() {
                 <img
                   className="w-full h-48 object-contain p-4"
                   src={product.image}
-                  alt={product.name}
+                  alt={product.alt}
                 />
               </div>
 
               {/* Product Details */}
               <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+                {/* Enhanced Product Name */}
+                <h3 className="font-bold text-gray-800 text-xl mb-2 line-clamp-2 hover:text-black transition-colors">
                   {product.name}
                 </h3>
 
