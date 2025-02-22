@@ -11,6 +11,7 @@ import Signup3 from './pages/Signup3';
 
 import Profile from './pages/Profile';
 import DryFruits from './pages/Dryfruits';
+import ProductDetails from './pages/productDetails';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +28,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/home/profile" element={<Profile />} />
         <Route path="/home/dryfruits" element={<DryFruits />} />
+
+        <Route path="/home/product/:id" element={<ProductDetails />} />
 
       </Routes>
     </Router>

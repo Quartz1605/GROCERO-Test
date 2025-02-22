@@ -4,11 +4,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
+
 
 export default function ProductSlider3() {
+  const navigate = useNavigate();
   const products = [
     {
-      name: "boAt 10000mAh Power Bank",
+      id: 1,
+      name: "boAt Power Bank",
       discount: "60%",
       originalPrice: "1999",
       discountedPrice: "1199",
@@ -16,6 +20,7 @@ export default function ProductSlider3() {
       alt: "Power Bank",
     },
     {
+      id: 2,
       name: "Fast Charging Adapter",
       discount: "50%",
       originalPrice: "999",
@@ -143,7 +148,12 @@ export default function ProductSlider3() {
                   </span>
                 </div>
 
-                <button className="w-full bg-[#F9429E] text-white py-2 rounded hover:bg-[#F400A1] transition-colors hover:cursor-pointer">
+                <button 
+                onClick={() => navigate(`/home/product/${product.id}`)} 
+                className="w-full bg-[#F9429E] text-white py-2 rounded hover:bg-[#F400A1] transition-colors hover:cursor-pointer">
+                  Buy Now
+                </button>
+                <button className="w-full bg-white border-2 border-[#F9429E] text-[#F9429E] py-2 rounded hover:bg-[#F9429E] hover:text-white transition-colors hover:cursor-pointer mt-2">
                   Add to Cart
                 </button>
               </div>
