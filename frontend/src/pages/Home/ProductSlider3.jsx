@@ -11,7 +11,11 @@ export default function ProductSlider3() {
   const navigate = useNavigate();
   const products = [
     {
-      id: boatPowerBank,
+<<<<<<< HEAD
+      id: "boat-Power-Bank",
+=======
+      id: 1,
+>>>>>>> 0ba014d2974529c5eb140048f9fd5528b8b634ec
       name: "boAt Power Bank",
       discount: "60%",
       originalPrice: "1999",
@@ -20,7 +24,7 @@ export default function ProductSlider3() {
       alt: "Power Bank",
     },
     {
-      id: 2,
+      id: "Fast-Charging-Adapter",
       name: "Fast Charging Adapter",
       discount: "50%",
       originalPrice: "999",
@@ -29,6 +33,7 @@ export default function ProductSlider3() {
       alt: "Charger",
     },
     {
+      id:"USB-C-to-A",
       name: "USB-C to USB-A Cable",
       discount: "30%",
       originalPrice: "299",
@@ -37,6 +42,7 @@ export default function ProductSlider3() {
       alt: "USB Cable",
     },
     {
+      id:"Wirless-Charging-pad",
       name: "Wireless Charging Pad",
       discount: "40%",
       originalPrice: "1499",
@@ -45,6 +51,7 @@ export default function ProductSlider3() {
       alt: "Wireless Charger",
     },
     {
+      id:"Multi-Port-USB-hub",
       name: "Multi-Port USB Hub",
       discount: "25%",
       originalPrice: "799",
@@ -53,6 +60,7 @@ export default function ProductSlider3() {
       alt: "USB Hub",
     },
     {
+      id:"LED-Desk-Lamp",
       name: "LED Desk Lamp",
       discount: "20%",
       originalPrice: "1299",
@@ -61,6 +69,7 @@ export default function ProductSlider3() {
       alt: "Desk Lamp",
     },
     {
+      id:"Portable-Bluetooth-Speaker",
       name: "Portable Bluetooth Speaker",
       discount: "35%",
       originalPrice: "2999",
@@ -69,6 +78,7 @@ export default function ProductSlider3() {
       alt: "Bluetooth Speaker",
     },
     {
+      id:"Smart-Plug",
       name: "Smart Plug with Energy Monitoring",
       discount: "15%",
       originalPrice: "1499",
@@ -77,6 +87,7 @@ export default function ProductSlider3() {
       alt: "Smart Plug",
     },
     {
+      id:"Rechargeable-Emergency-Light",
       name: "Rechargeable Emergency Light",
       discount: "10%",
       originalPrice: "899",
@@ -85,7 +96,7 @@ export default function ProductSlider3() {
       alt: "Emergency Light",
     },
     {
-      name: "Extension Cord with Surge Protection",
+      name: "Extension-Cord-with-Surge-Protection",
       discount: "30%",
       originalPrice: "499",
       discountedPrice: "349",
