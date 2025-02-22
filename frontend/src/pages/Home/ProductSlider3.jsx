@@ -11,11 +11,7 @@ export default function ProductSlider3() {
   const navigate = useNavigate();
   const products = [
     {
-<<<<<<< HEAD
       id: "boat-Power-Bank",
-=======
-      id: 1,
->>>>>>> 0ba014d2974529c5eb140048f9fd5528b8b634ec
       name: "boAt Power Bank",
       discount: "60%",
       originalPrice: "1999",
