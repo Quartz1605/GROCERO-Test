@@ -4,9 +4,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import User
 from .serializers import RegisterSerializer, UserSerializer, MyTokenObtainPairSerializer
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-import json
+
 
 # 🔹 Custom JWT Authentication View (Login)
 class MyTokenObtainPairView(TokenObtainPairView):
