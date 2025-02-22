@@ -11,7 +11,7 @@ export default function ProductSlider3() {
   const navigate = useNavigate();
   const products = [
     {
-      id: 1,
+      id: boatPowerBank,
       name: "boAt Power Bank",
       discount: "60%",
       originalPrice: "1999",
@@ -148,12 +148,9 @@ export default function ProductSlider3() {
                   </span>
                 </div>
 
-                <button 
-                onClick={() => navigate(`/home/product/${product.id}`)} 
-                className="w-full bg-[#F9429E] text-white py-2 rounded hover:bg-[#F400A1] transition-colors hover:cursor-pointer">
-                  Buy Now
-                </button>
-                <button className="w-full bg-white border-2 border-[#F9429E] text-[#F9429E] py-2 rounded hover:bg-[#F9429E] hover:text-white transition-colors hover:cursor-pointer mt-2">
+                
+                <button className="w-full bg-white border-2 border-[#F9429E] text-[#F9429E] py-2 rounded hover:bg-[#F9429E] hover:text-white transition-colors hover:cursor-pointer mt-5"
+                onClick={() => navigate(`/home/product/${product.id}`)} >
                   Add to Cart
                 </button>
               </div>
