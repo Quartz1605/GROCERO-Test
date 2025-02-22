@@ -12,6 +12,7 @@ import Signup3 from './pages/Signup3';
 import Profile from './pages/Profile';
 import DryFruits from './pages/Dryfruits';
 
+
 function App() {
   const [count, setCount] = useState(0)
 

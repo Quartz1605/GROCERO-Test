@@ -13,7 +13,11 @@ function Profile(){
       
       <div className="text-black">
         Address: {user ? user.homeAddress : "Failed to Fetch address"} 
-        </div>
+      </div>
+
+      <button className="bg-[#f9429E] hover:bg-[#F400A1] p-2 text-md text-white hover:cursor-pointer rounded-lg mt-5">Log out</button>
+    
+    
     </div>
   )
     

@@ -15,8 +15,8 @@ import ProductSlider2 from "./Home/ProductSlider2";
 import ProductSlider3 from "./Home/ProductSlider3";
 import UserLocation from "./Home/UserLocation";
 
-function Home() {
-  const {user} = useContext(UserContext);
+function Home2() {
+  const { user,logout } = useContext(UserContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -101,4 +101,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Home2;

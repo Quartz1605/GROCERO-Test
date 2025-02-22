@@ -110,7 +110,7 @@ export default function ProductSlider3() {
             <div className="w-64 h-96 bg-[#eeeeee] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-white/30">
               <div className="relative">
                 {/* Enhanced Discount Badge */}
-                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-3 py-1 rounded-full text-sm font-bold z-10 shadow-md">
+                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-1 py-1 rounded-lg text-[12px] font-bold z-10 shadow-md">
                   {product.discount} OFF
                 </span>
 
