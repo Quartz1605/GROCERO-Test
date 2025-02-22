@@ -49,6 +49,42 @@ const UserLocation = ({ isOpen, onClose }) => {
     }
   }
 
+
+  //Sending Address to backend using API calls.
+
+  const sendingAddressToBackend = async () => {
+    
+    const userAddress = {
+      homeAddress : address,
+    };
+
+    try{
+      const response = await fetch("http://localhost:8000/api/address/",{
+        method : "POST",
+        headers : {
+          "Content-type" : "application/json"
+        },
+        body:JSON.stringify(userAddress)
+      });
+
+      if(response.ok){
+        const data = await response.json();
+        console.log("Address sent successfully",data)
+      }
+      else{
+        console.log("Failed to send address.");
+      }
+
+    }
+    catch(error){
+      console.log("Error:",error)
+    }
+
+
+  }
+
+
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-transparent backdrop-blur-md">
       <div className="bg-white bg-opacity-40 backdrop-blur-lg p-6 rounded-2xl shadow-xl w-[400px]">
@@ -77,7 +113,7 @@ const UserLocation = ({ isOpen, onClose }) => {
         <p id="locationDisplay" className="mt-3 ml-3 text-black text-[16px] bg-white bg-opacity-70 backdrop-blur-sm p-2 rounded-lg shadow-sm"></p>
 
         <div className="flex items-center justify-center">
-          <button className="mt-8 bg-[#F9429E] text-amber-50 p-3 rounded-xl hover:bg-[#F400A1] transition-all duration-200" onClick={onClose}>Set as "Home" Address.</button>
+          <button className="mt-8 bg-[#F9429E] text-amber-50 p-3 rounded-xl hover:bg-[#F400A1] transition-all duration-200" onClick={sendingAddressToBackend}>Set as "Home" Address.</button>
         </div>
       </div>
     </div>
