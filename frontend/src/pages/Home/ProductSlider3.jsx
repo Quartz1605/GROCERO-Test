@@ -105,8 +105,8 @@ export default function ProductSlider3() {
     <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <Swiper
         modules={[Navigation, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={4}
+        spaceBetween={25}
+        slidesPerView={5}
         navigation
         autoplay={{ delay: 3000 }}
         loop
@@ -115,11 +115,12 @@ export default function ProductSlider3() {
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
           1280: { slidesPerView: 4 },
+          1536: { slidesPerView: 5 }
         }}
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            <div className="w-64 h-96 bg-[#eeeeee] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-white/30">
+            <div className="w-60 h-96 bg-[#eeeeee] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-white/30">
               <div className="relative">
                 {/* Enhanced Discount Badge */}
                 <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-1 py-1 rounded-lg text-[12px] font-bold z-10 shadow-md">

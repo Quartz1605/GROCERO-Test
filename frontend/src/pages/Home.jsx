@@ -41,7 +41,7 @@ function Home() {
               >
                 {user.homeAddress ? `Delivering to "Home🤍"` : "Set Address"}
               </button>
-              
+
               <UserLocation
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
@@ -73,50 +73,48 @@ function Home() {
           )}
 
           {/* Cart Icon */}
-          <div className="flex flex-col items-center justify-center gap-0">
-            <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-5 pb-0" />
-            <div className="ml-5 pt-0 text-[16px] text-[#000000] hover:underline hover:cursor-pointer">
-              Cart
-            </div>
+          <div className="flex flex-col items-center justify-center relative">
+            <button className="relative">
+              <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-5 pb-0" />
+            </button>
           </div>
         </div>
       </div>
+        {/* Welcome Banner */}
+        <div className="flex-column justify-center items-center max-w-7xl h-20 ml-20 mr-20 mt-25 mb-0 inline-block">
+          <p className="text-center mb-10 text-2xl">
+            Welcome <b className="text-[#F9429E]">{user.username}</b>!
+          </p>
+          <img className="object-contain" src={banner} alt="Banner" />
+        </div>
 
-      {/* Welcome Banner */}
-      <div className="flex-column justify-center items-center max-w-7xl h-20 ml-20 mr-20 mt-25 mb-0 inline-block">
-        <p className="text-center mb-10 text-2xl">
-          Welcome <b className="text-[#F9429E]">{user.username}</b>!
-        </p>
-        <img className="object-contain" src={banner} alt="Banner" />
+        {/* Grocery and Kitchen */}
+        <div className="flex flex-col justify-center mt-68 items-center">
+          <p className="text-[#F9429E] text-2xl font-bold text-center pb-8">
+            Grocery and Kitchen
+          </p>
+          <ProductSlider />
+        </div>
+
+        {/* Snacks and Drinks */}
+        <div className="flex flex-col justify-start mt-15 items-center">
+          <p className="text-[#F9429E] text-2xl font-bold pb-8">
+            Snacks and Drinks
+          </p>
+          <ProductSlider2 />
+        </div>
+
+        {/* Home Needs */}
+        <div className="flex flex-col justify-center mt-15 items-center">
+          <p className="text-[#F9429E] text-2xl font-bold text-center pb-8">
+            Get Your Home Needs
+          </p>
+          <ProductSlider3 />
+        </div>
+
+        <h4 className="mt-5 mb-15">Things are to be added.....</h4>
       </div>
-
-      {/* Grocery and Kitchen */}
-      <div className="flex flex-col justify-center mt-68 items-center">
-        <p className="text-[#F9429E] text-2xl font-bold text-center pb-8">
-          Grocery and Kitchen
-        </p>
-        <ProductSlider />
-      </div>
-
-      {/* Snacks and Drinks */}
-      <div className="flex flex-col justify-start mt-15 items-center">
-        <p className="text-[#F9429E] text-2xl font-bold pb-8">
-          Snacks and Drinks
-        </p>
-        <ProductSlider2 />
-      </div>
-
-      {/* Home Needs */}
-      <div className="flex flex-col justify-center mt-15 items-center">
-        <p className="text-[#F9429E] text-2xl font-bold text-center pb-8">
-          Get Your Home Needs
-        </p>
-        <ProductSlider3 />
-      </div>
-
-      <h4 className="mt-5 mb-15">Things are to be added.....</h4>
-    </div>
-  );
+      );
 }
 
-export default Home;
+      export default Home;
