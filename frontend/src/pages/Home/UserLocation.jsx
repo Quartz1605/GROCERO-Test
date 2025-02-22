@@ -2,42 +2,30 @@ import { useContext, useState } from "react";
 import UserContext from "../../../contexts/UserContext";
 
 const UserLocation = ({ isOpen, onClose }) => {
-
   if (!isOpen) return null;
-  const [homeAdd,sethomeAdd] = useState("")
+  const [homeAdd, sethomeAdd] = useState("");
 
-  
-
-  const { setUser } = useContext(UserContext)
+  const { setUser } = useContext(UserContext);
 
   function getLocation() {
-
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           let lat = position.coords.latitude;
           let lon = position.coords.longitude;
           getAddress(lat, lon);
-          
-
         },
-
         (error) => {
-          console.log("Error in getting location")
+          console.log("Error in getting location");
         }
-
-
       );
-
+    } else {
+      console.log("Geolocation not supported by your browser.");
     }
-    else {
-      console.log("Geolocation not supported by your browser.")
-    }
-
   }
 
   async function getAddress(lat, lon) {
-    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`;
 
     try {
       const resp = await fetch(url);
@@ -45,38 +33,25 @@ const UserLocation = ({ isOpen, onClose }) => {
 
       if (data && data.display_name) {
         let address = data.display_name;
-        document.getElementById("locationDisplay").innerHTML = `Current Location: ${address}
-        `;
-        sethomeAdd(address)
-        localStorage.setItem("homeAddress",address)
-        
-        
+        document.getElementById("locationDisplay").innerHTML = `Current Location: ${address}`;
+        sethomeAdd(address);
+        localStorage.setItem("homeAddress", address);
+
         setUser((prevUser) => ({
           ...prevUser,
-          homeAddress : address
-        }))
-        
-      }
-      else {
+          homeAddress: address,
+        }));
+      } else {
         document.getElementById("locationDisplay").innerHTML += "<br>Failed to get address.";
       }
-
-
-    }
-    catch (error) {
+    } catch (error) {
       document.getElementById("locationDisplay").innerHTML += "<br>Error fetching address.";
     }
   }
 
-  
-
-
-
-
-
   return (
-    <div className="fixed inset-0 bg-[#636363] bg-opacity-10 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-[400px]">
+    <div className="fixed inset-0 flex items-center justify-center bg-transparent backdrop-blur-md">
+      <div className="bg-white bg-opacity-40 backdrop-blur-lg p-6 rounded-2xl shadow-xl w-[400px]">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">Your Location</h2>
           <button onClick={onClose} className="text-[#F9429E] hover:cursor-pointer">✖</button>
@@ -85,33 +60,28 @@ const UserLocation = ({ isOpen, onClose }) => {
         <input
           type="text"
           placeholder="Search a new address"
-          className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fc82bf]"
+          className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fc82bf] bg-white bg-opacity-80 backdrop-blur-sm"
         />
 
-        <div className="mt-4 flex items-center space-x-3">
+        <div className="mt-4 flex items-center space-x-3 p-3 bg-white bg-opacity-50 backdrop-blur-md rounded-lg shadow-md">
           <span className="text-[#F9429E]">📍</span>
           <div className="flex-1">
             <h3 className="font-semibold text-[#F9429E]">Current Location</h3>
             <p className="text-gray-500 text-sm">Enable your current location for better services</p>
           </div>
-          <button className="bg-[#F2429E] text-white px-4 py-1 rounded-lg hover:cursor-pointer" onClick={getLocation}>
+          <button className="bg-[#F2429E] text-white px-4 py-1 rounded-lg hover:bg-[#D40085] transition-all duration-200" onClick={getLocation}>
             Enable
           </button>
-
-
-
         </div>
 
-        <p id="locationDisplay" className="mt-3 ml-3 text-black text-[16px]"></p>
+        <p id="locationDisplay" className="mt-3 ml-3 text-black text-[16px] bg-white bg-opacity-70 backdrop-blur-sm p-2 rounded-lg shadow-sm"></p>
 
         <div className="flex items-center justify-center">
-          <button className="mt-8 bg-[#F9429E] text-amber-50 p-3 rounded-xl hover:cursor-pointer hover:bg-[#F400A1]" onClick={onClose}>Set as "Home" Address.</button>
+          <button className="mt-8 bg-[#F9429E] text-amber-50 p-3 rounded-xl hover:bg-[#F400A1] transition-all duration-200" onClick={onClose}>Set as "Home" Address.</button>
         </div>
-
-
       </div>
     </div>
   );
 };
 
-export default UserLocation
+export default UserLocation;
