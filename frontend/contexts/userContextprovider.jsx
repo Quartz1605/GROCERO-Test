@@ -1,28 +1,31 @@
-import UserContext from "./UserContext"; 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import UserContext from "./UserContext";
 
+const UserProvider = ({ children }) => {
+  const savedAddress = localStorage.getItem("homeAddress") || "";
+  const name = localStorage.getItem("username") || "Guest";
+  const [user, setUser] = useState({ homeAddress: savedAddress, username: name });
 
-const UserProvider = ({children}) => {
+  // Login function
+  const login = (username, homeAddress = "") => {
+    setUser({ username, homeAddress });
+    localStorage.setItem("username", username);
+    localStorage.setItem("homeAddress", homeAddress);
+  };
 
-  
-  const savedAddress = localStorage.getItem("homeAddress") || ""
-  const name = localStorage.getItem("username") || "Guest"
-  const [user,setUser] = useState({homeAddress : savedAddress,username : name})  
-  
-  return(
+  // Logout function
+  const logout = () => {
+    setUser({ username: "Guest", homeAddress: "" });
+    localStorage.removeItem("username");
+    localStorage.removeItem("homeAddress");
+  };
 
-      <UserContext.Provider value={{user,setUser}}>
-        {children}
-      </UserContext.Provider>
-
-
-
-    );
-
-
-
-}
+  return (
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
 
 export default UserProvider;
 
