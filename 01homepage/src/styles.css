@@ -1,0 +1,25 @@
+/* Customize dots */
+.slick-dots li button:before {
+  color: #000; /* Dot color */
+  opacity: 0.5; /* Inactive dot opacity */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #000; /* Active dot color */
+  opacity: 1; /* Active dot opacity */
+}
+
+/* Customize arrows */
+.slick-prev:before,
+.slick-next:before {
+  color: #000; /* Arrow color */
+  font-size: 24px; /* Arrow size */
+}
+
+.slick-prev {
+  left: -30px; /* Position previous arrow */
+}
+
+.slick-next {
+  right: -30px; /* Position next arrow */
+}
