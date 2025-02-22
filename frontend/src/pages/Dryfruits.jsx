@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Search, MapPin, ShoppingCart, User, Heart } from 'lucide-react';//for icons
-
+import groLogo from "../assets/groceroLogo.png";
+import { IoSearch } from "../assets/react-icons/io5";
+import { GiShoppingCart } from "../assets/react-icons/gi"
+import { useContext } from 'react';
+import UserContext from '../../contexts/UserContext';
+import { Link } from 'react-router-dom';
+import UserLocation from './Home/UserLocation';
 // Categories on sidebar with their icons
 const categories = [
   { name: 'All', icon: '🏠', image: 'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=50&h=50' },
@@ -132,49 +138,84 @@ function Dryfruits() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [cartItems, setCartItems] = useState([]);
 
+  const { user } = useContext(UserContext); // No need for logout here
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 w-full z-50">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <h1 className="text-purple-600 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-              GROCERÓ
-              </h1>
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-purple-600 transition-colors">
-                <MapPin size={18} />
-                <span>Select Location</span>
+      <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50 backdrop-blur-md">
+        {/* Logo */}
+        <Link to="/home">
+          <img src={groLogo} className="h-15 ml-4 mr-2" alt="Grocero Logo" />
+        </Link>
+        {/* Search Bar */}
+        <div className="flex items-center p-2 relative w-full">
+          <IoSearch className="text-[#F9429E] w-6 h-6 absolute left-3 top-1/2 transform -translate-y-1/2 pl-1.5" />
+          <input
+            className="pl-10 bg-gray-50 rounded-lg h-12 text-gray-800 px-4 outline-none border border-gray-200 focus:border-[#F9429E] focus:ring-1 focus:ring-[#ffb6c1] transition duration-300 flex-grow"
+            type="text"
+            placeholder="Looking for?"
+            required
+          />
+
+          {/* Conditional Rendering Based on Login State */}
+          {user.username !== "Guest" ? (
+            <>
+              {/* Address Button */}
+              <button
+                className="bg-[#F9429E] ml-3 rounded-xl p-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]"
+                onClick={() => setIsModalOpen(true)}
+              >
+                {user.homeAddress ? `Delivering to "Home🤍"` : "Set Address"}
               </button>
-            </div>
-            <div className="flex-1 max-w-2xl mx-8">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search for premium dry fruits, nuts, and more..."
-                  className="w-full py-2 px-4 pl-10 bg-white/50 backdrop-blur-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all"
-                />
-                <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
-              </div>
-            </div>
-            <div className="flex items-center space-x-6">
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-purple-600 transition-colors">
-                <User size={20} />
-                <span>Login</span>
-              </button>
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-purple-600 transition-colors">
-                <ShoppingCart size={20} />
-                <span>Cart</span>
-                {cartItems.length > 0 && (
-                  <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs rounded-full px-2 py-0.5">
-                    {cartItems.length}
-                  </span>
-                )}
-              </button>
-            </div>
+
+              <UserLocation
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+              />
+
+              {/* Profile Picture */}
+              <img
+                className="h-10 rounded-full w-10 ml-5 hover:cursor-pointer"
+                src="https://images.pexels.com/photos/21699301/pexels-photo-21699301/free-photo-of-silhouette-of-man-by-the-lake.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+                alt="Profile"
+              />
+
+              {/* Username */}
+              <Link to="/home/profile">
+                <div className="ml-2 hover:cursor-pointer hover:underline">
+                  {user.username}
+                </div>
+              </Link>
+            </>
+          ) : (
+            <>
+              {/* Login Button */}
+              <Link to="/login">
+                <button className="bg-[#F9429E] ml-3 rounded-xl px-5 py-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]">
+                  Login
+                </button>
+              </Link>
+            </>
+          )}
+
+          {/* Cart Icon */}
+          <div className="flex flex-col items-center justify-center relative">
+            <button className="relative">
+              <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-5 pb-0" />
+            </button>
+
+            {cartItems.length > 0 && (
+              <span className="absolute -top-2 right-2 bg-[#F9429E] text-white text-xs rounded-full px-2 py-0.5 z-20">
+                {cartItems.length}
+              </span>
+            )}
           </div>
+
         </div>
-      </header>
+      </div>
 
       <div className="pt-20 px-4">
         <div className="container mx-auto">
@@ -186,11 +227,10 @@ function Dryfruits() {
                   <button
                     key={category.name}
                     onClick={() => setSelectedCategory(category.name)}
-                    className={`w-full flex items-center space-x-3 p-3 rounded-xl transition-all relative group ${
-                      selectedCategory === category.name
-                        ? 'bg-gradient-to-r from-purple-50 to-pink-50 text-purple-600'
-                        : 'hover:bg-gray-50'
-                    }`}
+                    className={`w-full flex items-center space-x-3 p-3 rounded-xl transition-all relative group ${selectedCategory === category.name
+                      ? 'bg-gradient-to-r from-purple-50 to-pink-50 text-purple-600'
+                      : 'hover:bg-gray-50'
+                      }`}
                   >
                     <div className="flex-shrink-0 w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-pink-100 transform transition-transform group-hover:scale-110 shadow-md">
                       <img
@@ -203,11 +243,10 @@ function Dryfruits() {
                       <span className="font-medium">{category.name}</span>
                     </div>
                     {category.badge && (
-                      <span className={`absolute right-3 top-3 text-xs px-2 py-1 rounded-full ${
-                        category.badge === 'NEW'
-                          ? 'bg-gradient-to-r from-green-400 to-emerald-400 text-white'
-                          : 'bg-gradient-to-r from-purple-400 to-pink-400 text-white'
-                      }`}>
+                      <span className={`absolute right-3 top-3 text-xs px-2 py-1 rounded-full ${category.badge === 'NEW'
+                        ? 'bg-gradient-to-r from-green-400 to-emerald-400 text-white'
+                        : 'bg-gradient-to-r from-[#F9429E] to-[#FFA07A] text-white'
+                        }`}>
                         {category.badge}
                       </span>
                     )}
@@ -232,12 +271,12 @@ function Dryfruits() {
                     <div className="floating-nuts scale-150">🥜</div>
                   </div>
                 </div>
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-purple-400 to-pink-600 h-48 shadow-xl hover:shadow-2xl transition-shadow">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#F9429E] to-[#FFA07A] h-48 shadow-xl hover:shadow-2xl transition-shadow">
                   <div className="absolute inset-0 flex items-center justify-between p-8">
                     <div className="text-white">
                       <h2 className="text-2xl font-bold mb-2">Luxury Gift Boxes</h2>
                       <p className="mb-4 opacity-90">UP TO 40% OFF</p>
-                      <button className="bg-white text-purple-600 px-6 py-2 rounded-xl font-medium hover:bg-opacity-90 transform hover:scale-105 transition-all shadow-md">
+                      <button className="bg-white text-[#F9429E] px-6 py-2 rounded-xl font-medium hover:bg-opacity-90 transform hover:scale-105 transition-all shadow-md">
                         Explore
                       </button>
                     </div>
@@ -261,7 +300,7 @@ function Dryfruits() {
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
-                      <div className="absolute top-2 right-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm px-3 py-1 rounded-full shadow-md">
+                      <div className="absolute top-2 right-2 bg-gradient-to-r from-[#F9429E] to-[#FFA07A]  text-white text-sm px-3 py-1 rounded-full shadow-md">
                         {product.discount}% OFF
                       </div>
                       {product.tag && (
@@ -273,7 +312,7 @@ function Dryfruits() {
                         className="absolute bottom-2 right-2 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transform transition-all hover:scale-110"
                         aria-label="Add to wishlist"
                       >
-                        <Heart size={18} className="text-gray-600" />
+                        <Heart size={18} className="text-gray-600 hover:cursor-pointer" />
                       </button>
                     </div>
                     <div className="p-4">
@@ -281,7 +320,7 @@ function Dryfruits() {
                       <p className="text-sm text-gray-500 mb-2">{product.weight}</p>
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                          <span className="text-lg font-bold bg-clip-text text-transparent bg-[#F9429E]">
                             ₹{product.price}
                           </span>
                           <span className="ml-2 text-sm text-gray-500 line-through">
@@ -290,7 +329,7 @@ function Dryfruits() {
                         </div>
                         <button
                           onClick={() => setCartItems([...cartItems, product.id])}
-                          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-1.5 rounded-xl text-sm hover:shadow-lg transform hover:scale-105 transition-all"
+                          className="bg-[#F9429E] text-white px-6 py-1.5 rounded-xl text-sm hover:shadow-lg transform hover:scale-105 transition-all hover:cursor-pointer"
                         >
                           Add
                         </button>
@@ -305,7 +344,7 @@ function Dryfruits() {
       </div>
 
       {/* Floating Deals Button at bottom right */}
-      <button className="fixed bottom-6 right-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all animate-pulse">
+      <button className="fixed bottom-6 right-6 bg-gradient-to-r from-[#F9429E] to-[#FFA07A] text-white px-6 py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all animate-pulse">
         🔥 Deals of the Day
       </button>
     </div>
