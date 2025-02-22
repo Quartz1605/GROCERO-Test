@@ -145,31 +145,35 @@ function Dryfruits() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
       {/* Header */}
-      <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50 backdrop-blur-md">
+      <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50">
         {/* Logo */}
         <Link to="/home">
-          <img src={groLogo} className="h-15 ml-4 mr-2" alt="Grocero Logo" />
+          <img src={groLogo} className="h-15 ml-2 " alt="Grocero Logo" />
         </Link>
         {/* Search Bar */}
         <div className="flex items-center p-2 relative w-full">
-          <IoSearch className="text-[#F9429E] w-6 h-6 absolute left-3 top-1/2 transform -translate-y-1/2 pl-1.5" />
-          <input
-            className="pl-10 bg-gray-50 rounded-lg h-12 text-gray-800 px-4 outline-none border border-gray-200 focus:border-[#F9429E] focus:ring-1 focus:ring-[#ffb6c1] transition duration-300 flex-grow"
-            type="text"
-            placeholder="Looking for?"
-            required
-          />
+
 
           {/* Conditional Rendering Based on Login State */}
           {user.username !== "Guest" ? (
             <>
               {/* Address Button */}
-              <button
-                className="bg-[#F9429E] ml-3 rounded-xl p-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]"
-                onClick={() => setIsModalOpen(true)}
-              >
-                {user.homeAddress ? `Delivering to "Home🤍"` : "Set Address"}
+              <button className="flex items-center ml-1  hover:cursor-pointer text-[#F9429E] hover:bg-[#F9429E] hover:text-white hover:px-1 hover:py-1 rounded-lg transform hover:scale-101 transition-all hover:shadow-lg mr-2" onClick={() => setIsModalOpen(true)}>
+                <MapPin size={25} />
+                <span>{user.homeAddress ? `Delivering to "Home🤍"` : "Select Location"}</span>
               </button>
+
+              {/* Search Bar */}
+              <div className="relative w-full max-w-screen">
+                <IoSearch className="text-[#F9429E] w-6 h-6 absolute left-4 top-1/2 transform -translate-y-1/2" />
+                <input
+                  className="w-full pl-12 bg-gray-50 rounded-lg h-12 text-gray-800 px-4 outline-none border border-gray-200 focus:border-[#F9429E] focus:ring-1 focus:ring-[#ffb6c1] transition duration-300"
+                  type="text"
+                  placeholder="Looking for?"
+                  required
+                />
+              </div>
+                
 
               <UserLocation
                 isOpen={isModalOpen}
@@ -178,7 +182,7 @@ function Dryfruits() {
 
               {/* Profile Picture */}
               <img
-                className="h-10 rounded-full w-10 ml-5 hover:cursor-pointer"
+                className="h-10 rounded-full w-13 ml-5 hover:cursor-pointer"
                 src="https://images.pexels.com/photos/21699301/pexels-photo-21699301/free-photo-of-silhouette-of-man-by-the-lake.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
                 alt="Profile"
               />
@@ -192,7 +196,21 @@ function Dryfruits() {
             </>
           ) : (
             <>
+
+              {/* Search Bar */}
+              <div className="relative w-full max-w-screen">
+                <IoSearch className="text-[#F9429E] w-6 h-6 absolute left-4 top-1/2 transform -translate-y-1/2" />
+                <input
+                  className="w-full pl-12 bg-gray-50 rounded-lg h-12 text-gray-800 px-4 outline-none border border-gray-200 focus:border-[#F9429E] focus:ring-1 focus:ring-[#ffb6c1] transition duration-300"
+                  type="text"
+                  placeholder="Looking for?"
+                  required
+                />
+              </div>
+
+
               {/* Login Button */}
+
               <Link to="/login">
                 <button className="bg-[#F9429E] ml-3 rounded-xl px-5 py-3 text-white font-bold hover:cursor-pointer hover:bg-[#F400A1]">
                   Login
@@ -204,7 +222,7 @@ function Dryfruits() {
           {/* Cart Icon */}
           <div className="flex flex-col items-center justify-center relative">
             <button className="relative">
-              <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-5 pb-0" />
+              <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-3 pb-0" />
             </button>
 
             {cartItems.length > 0 && (
