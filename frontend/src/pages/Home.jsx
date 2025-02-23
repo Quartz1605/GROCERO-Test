@@ -18,7 +18,7 @@ function Home() {
   return (
     <div className="bg-white relative flex flex-col gap-0 p-0 m-0 justify-start items-center h-screen">
       {/* Navigation Bar */}
-      <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50">
+      <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50 bg-gradient-to-b from-[#ff9bcd] to-[#ffffff] backdrop:blur-xl">
         {/* Logo */}
         <img src={groLogo} className="h-15 ml-2" alt="Grocero Logo" />
 
@@ -31,7 +31,7 @@ function Home() {
           {user.username !== "Guest" ? (
             <>
               {/* Address Button */}
-              <button className="flex items-center ml-1  hover:cursor-pointer text-[#F9429E] hover:bg-[#F9429E] hover:text-white hover:px-1 hover:py-1 rounded-lg transform hover:scale-101 transition-all hover:shadow-lg mr-2" onClick={() => setIsModalOpen(true)}>
+              <button className="flex items-center ml-1  hover:cursor-pointer text-[#f8228d] hover:bg-gradient-to-b from-[#ff9bcd] to-[#ffffff] hover:text-[#F9429E] hover:px-1 hover:py-1 rounded-lg transform hover:scale-101 transition-all hover:shadow-lg mr-1" onClick={() => setIsModalOpen(true)}>
                 <MapPin size={25} />
                 <span>{user.homeAddress ? `Delivering to "Home🤍"` : "Select Location"}</span>
               </button>
