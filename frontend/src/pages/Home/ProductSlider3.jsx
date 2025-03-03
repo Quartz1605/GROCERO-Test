@@ -6,7 +6,6 @@ import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
 
-
 export default function ProductSlider3() {
   const navigate = useNavigate();
   const products = [
@@ -29,7 +28,7 @@ export default function ProductSlider3() {
       alt: "Charger",
     },
     {
-      id:"USB-C-to-A",
+      id: "USB-C-to-A",
       name: "USB-C to USB-A Cable",
       discount: "30%",
       originalPrice: "299",
@@ -38,7 +37,7 @@ export default function ProductSlider3() {
       alt: "USB Cable",
     },
     {
-      id:"Wirless-Charging-pad",
+      id: "Wirless-Charging-pad",
       name: "Wireless Charging Pad",
       discount: "40%",
       originalPrice: "1499",
@@ -47,7 +46,7 @@ export default function ProductSlider3() {
       alt: "Wireless Charger",
     },
     {
-      id:"Multi-Port-USB-hub",
+      id: "Multi-Port-USB-hub",
       name: "Multi-Port USB Hub",
       discount: "25%",
       originalPrice: "799",
@@ -56,35 +55,29 @@ export default function ProductSlider3() {
       alt: "USB Hub",
     },
     {
-      id:"LED-Desk-Lamp",
+      id: "LED-Desk-Lamp",
       name: "LED Desk Lamp",
       discount: "20%",
       originalPrice: "1299",
       discountedPrice: "1039",
-      image: "https://example.com/desk-lamp.jpg",
+      image:
+        "https://images.pexels.com/photos/6913319/pexels-photo-6913319.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       alt: "Desk Lamp",
     },
     {
-      id:"Portable-Bluetooth-Speaker",
+      id: "Portable-Bluetooth-Speaker",
       name: "Portable Bluetooth Speaker",
       discount: "35%",
       originalPrice: "2999",
       discountedPrice: "1949",
-      image: "https://example.com/bluetooth-speaker.jpg",
+      image:
+        "https://images.pexels.com/photos/4132534/pexels-photo-4132534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       alt: "Bluetooth Speaker",
     },
     {
-      id:"Smart-Plug",
-      name: "Smart Plug with Energy Monitoring",
-      discount: "15%",
-      originalPrice: "1499",
-      discountedPrice: "1274",
-      image: "https://example.com/smart-plug.jpg",
-      alt: "Smart Plug",
-    },
-    {
-      id:"Rechargeable-Emergency-Light",
-      name: "Rechargeable Emergency Light",
+      id: "Torch-Light",
+      name: "Torch Light",
+
       discount: "10%",
       originalPrice: "899",
       discountedPrice: "809",
@@ -92,7 +85,8 @@ export default function ProductSlider3() {
       alt: "Emergency Light",
     },
     {
-      name: "Extension-Cord-with-Surge-Protection",
+      id: "Extension-Cord-with-Surge-Protection",
+      name: "Extension Cord with Surge Protection",
       discount: "30%",
       originalPrice: "499",
       discountedPrice: "349",
@@ -115,50 +109,53 @@ export default function ProductSlider3() {
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
           1280: { slidesPerView: 4 },
-          1536: { slidesPerView: 5 }
+          1536: { slidesPerView: 5 },
         }}
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            <div className="w-60 h-96 bg-[#eeeeee] rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-white/30">
-              <div className="relative">
-                {/* Enhanced Discount Badge */}
-                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-1 py-1 rounded-lg text-[12px] font-bold z-10 shadow-md">
+            <div className="w-60 h-96 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 overflow-hidden">
+              <div className="relative h-2/5">
+                {/* Discount Badge */}
+                <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-2 py-1 rounded-lg text-[12px] font-bold z-10 shadow-md">
                   {product.discount} OFF
                 </span>
 
-                {/* Wishlist Button */}
-                <button className="absolute top-2 right-2 text-gray-600">
+                {/* Remove 'F' or Replace with Icon */}
+                {/* Commenting out the 'F' button to remove it */}
+                {/* <button className="absolute top-2 right-2 text-gray-600">
                   F
-                </button>
+                </button> */}
 
-                {/* Product Image */}
-                <img
-                  className="w-full h-48 object-contain p-4"
-                  src={product.image}
-                  alt={product.alt}
-                />
+                {/* Product Image with Frame */}
+                <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                  <img
+                    className="max-w-full max-h-full object-contain p-2"
+                    src={product.image}
+                    alt={product.alt}
+                  />
+                </div>
               </div>
 
               {/* Product Details */}
-              <div className="p-4">
-                {/* Enhanced Product Name */}
-                <h3 className="font-bold text-gray-800 text-xl mb-2 line-clamp-2 hover:text-black transition-colors">
-                  {product.name}
-                </h3>
-
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-2xl font-bold text-[#F9429E]">
-                    ₹{product.discountedPrice}
-                  </span>
-                  <span className="text-gray-500 line-through">
-                    ₹{product.originalPrice}
-                  </span>
+              <div className="p-4 h-3/5 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-gray-800 text-xl mb-2 line-clamp-2 hover:text-black transition-colors">
+                    {product.name}
+                  </h3>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl font-bold text-[#F9429E]">
+                      ₹{product.discountedPrice}
+                    </span>
+                    <span className="text-gray-500 line-through">
+                      ₹{product.originalPrice}
+                    </span>
+                  </div>
                 </div>
-
-                
-                <button className="w-full bg-white border-2 border-[#F9429E] text-[#F9429E] py-2 rounded hover:bg-[#F9429E] hover:text-white transition-colors hover:cursor-pointer mt-5"
-                onClick={() => navigate(`/home/product/${product.id}`)} >
+                <button
+                  className="w-full bg-white border-2 border-[#F9429E] text-[#F9429E] py-2 rounded hover:bg-[#F9429E] hover:text-white transition-colors hover:cursor-pointer"
+                  onClick={() => navigate(`/home/product/${product.id}`)}
+                >
                   Add to Cart
                 </button>
               </div>
