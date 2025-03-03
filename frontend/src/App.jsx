@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 import Home from './pages/Home';
 import LandingPage from './pages/LandingPage/LandingPage';
 
@@ -13,6 +14,7 @@ import Profile from './pages/Profile';
 import DryFruits from './pages/Dryfruits';
 import ProductDetails from './pages/productDetails';
 
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +33,8 @@ function App() {
         <Route path="/home/dryfruits" element={<DryFruits />} />
 
         <Route path="/home/product/:id" element={<ProductDetails />} />
+        
+        <Route path="/home/category/:categoryName" element={<CategoryPage />} />
 
       </Routes>
     </Router>

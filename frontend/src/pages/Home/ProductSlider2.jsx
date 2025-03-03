@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 export default function ProductSlider2() {
   const products = [
@@ -21,12 +22,15 @@ export default function ProductSlider2() {
       title: "Frozen Foods",
       image:
         "https://img.freepik.com/free-photo/top-view-raw-fish-slices-with-ice-wood-board-table_179666-46565.jpg?t=st=1739810055~exp=1739813655~hmac=f2a46dc20c978bc72945783a86ddca76d776f904f59601e7247c3ab19ed18973&w=1800",
+      link : "/home/ice-creams"
+      
     },
     {
       title: "Sweet Cravings",
       image:
         "https://images.pexels.com/photos/1906435/pexels-photo-1906435.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
+      link : "/home/category/Sweet Cravings"
+      },
     {
       title: "Cold Drinks and Juices",
       image:
@@ -58,13 +62,13 @@ export default function ProductSlider2() {
         {products.map((product, index) => (
           <SwiperSlide key={index}>
             <div className="w-64 h-80 bg-[#eeeeee] backdrop-blur-lg border border-white/30 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col">
-              <a href="/">
+              <Link to={product.link}>
                 <img
                   className="w-full h-48 object-cover rounded-t-lg"
                   src={product.image}
                   alt={product.title}
                 />
-              </a>
+              </Link>
               <div className="px-4 py-2 flex-grow flex items-center">
                 <h5 className="font-semibold text-black text-center line-clamp-2 leading-tight text-2xl">
                   {product.title}
