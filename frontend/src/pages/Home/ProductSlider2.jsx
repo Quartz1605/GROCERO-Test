@@ -12,17 +12,19 @@ export default function ProductSlider2() {
       title: "Tea, Coffee and More",
       image:
         "https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      link:"/home/category/Tea, Coffee & More"
     },
     {
-      title: "Ice Creams and More",
+      title: "Baby Food",
       image:
-        "https://images.pexels.com/photos/161420/ice-cream-cone-melting-hot-ice-cream-scoop-161420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    },
+        "https://images.unsplash.com/photo-1544829832-c8047d6b9d89?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      link:"/home/category/Baby Food"
+      },
     {
       title: "Frozen Foods",
       image:
         "https://img.freepik.com/free-photo/top-view-raw-fish-slices-with-ice-wood-board-table_179666-46565.jpg?t=st=1739810055~exp=1739813655~hmac=f2a46dc20c978bc72945783a86ddca76d776f904f59601e7247c3ab19ed18973&w=1800",
-      link : "/home/ice-creams"
+      link : "/home/category/Frozen Foods"
       
     },
     {
@@ -35,12 +37,14 @@ export default function ProductSlider2() {
       title: "Cold Drinks and Juices",
       image:
         "https://images.pexels.com/photos/1662238/pexels-photo-1662238.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
+      link: "/home/category/Cold Drinks & Juices"
+      },
     {
       title: "Munchies",
       image:
         "https://images.pexels.com/photos/7196444/pexels-photo-7196444.jpeg?auto=compress&cs=tinysrgb&w=800",
-    },
+      link:"/home/category/Munchies"
+      },
   ];
 
   return (

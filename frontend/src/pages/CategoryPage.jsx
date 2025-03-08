@@ -157,19 +157,21 @@ const CategoryPage = () => {
               <p className="text-sm text-gray-500 mb-2">500g</p> {/* Replace with actual weight if available */}
               <div className="flex items-center justify-between flex-col">
 
-                <div className="mt-4 flex justify-around items-center space-x-38 bg-[#F9429E] bg-opacity-50 backdrop-blur-md rounded-lg shadow-md ">
+                <div className="mt-4 flex justify-around items-center space-x-38 bg-white bg-opacity-50 backdrop-blur-md rounded-lg shadow-md border-1">
                   <span className="text-lg font-bold bg-clip-text  text-[#2cf005] pl-2">
                     {groRates} {/* Display product price */}
                   </span>
-                  <div className="text-2xl text-[#FFFFFF] font-bold px-3 py-4">GROCERÓ</div>
+                  <div className="text-2xl text-[#FFFFFF] font-bold px-3 py-4 bg-[#F9429E] rounded-lg">GROCERÓ</div>
 
                 </div>
 
-                <div className="mt-4 flex justify-around items-center space-x-40 bg-[#5D1ABA] bg-opacity-50 backdrop-blur-md rounded-lg shadow-md ">
-                  <span className="text-lg font-bold bg-clip-text bg-[#F9429E] text-amber-50 pl-2">
+                <div className="mt-4 flex justify-around items-center space-x-40 bg-opacity-50 backdrop-blur-md rounded-lg shadow-md border-1">
+                  <span className="text-lg font-bold bg-clip-text bg-[#F9429E] text-[#5D1ABA] pl-2">
                     {price} {/* Display product price */}
                   </span>
-                  <img src={zeptoLogo} className="h-17 w-35 rounded-lg"></img>
+                  <div className="bg-[#5D1ABA] rounded-lg">
+                    <img src={zeptoLogo} className="h-17 w-35 rounded-lg"></img>
+                  </div>
 
                 </div>
                 <button
@@ -188,3 +190,4 @@ const CategoryPage = () => {
 };
 
 export default CategoryPage;
+
