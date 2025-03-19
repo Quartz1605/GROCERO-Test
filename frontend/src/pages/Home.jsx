@@ -137,7 +137,7 @@ function Home() {
           New in Store
         </p>
         
-        <div className="flex flex-row gap-5 flex-wrap items-center justify-center ">
+        <div className="flex flex-row gap-5 flex-wrap items-center justify-center text-[#F9429E]">
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]" Link>
             <Link to="category/Mobile Accessories">
             <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/302816080/JR/SQ/TN/101759040/8-85046-mobile-phone-accessories-png-png-download-mobile-accessories-500x500.png" className="w-60 h-36 rounded-lg" />
@@ -173,7 +173,7 @@ function Home() {
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
           <Link to="category/Bags & Accessories">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHBzTsIdpvs85mmrooOBNPPi6KzpTBtbhVbg&s" className="w-60 h-36 rounded-lg" />
+            <img src="https://4.imimg.com/data4/DC/JE/MY-799611/canvas-backpack-1-500x500.jpg" className="w-60 h-36 rounded-lg" />
             <p className="text-lg font-bold pt-2 text-center">Bags & Accessories</p>
           </Link>
 

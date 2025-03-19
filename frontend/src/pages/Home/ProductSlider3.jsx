@@ -114,7 +114,7 @@ export default function ProductSlider3() {
       >
         {products.map((product, index) => (
           <SwiperSlide key={index}>
-            <div className="w-60 h-96 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 overflow-hidden">
+            <div className="w-60 h-76 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 overflow-hidden">
               <div className="relative h-2/5">
                 {/* Discount Badge */}
                 <span className="absolute top-2 left-2 bg-[#F9429E] text-white px-2 py-1 rounded-lg text-[12px] font-bold z-10 shadow-md">
