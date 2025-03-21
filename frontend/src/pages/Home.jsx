@@ -10,6 +10,7 @@ import ProductSlider2 from "./Home/ProductSlider2";
 import ProductSlider3 from "./Home/ProductSlider3";
 import UserLocation from "./Home/UserLocation";
 import { Search, MapPin, ShoppingCart, User, Heart } from 'lucide-react';//for icons
+import ProductSlider4 from "./Home/ProductSlider4";
 
 function Home() {
   const { user } = useContext(UserContext); // No need for logout here
@@ -137,7 +138,7 @@ function Home() {
           New in Store
         </p>
         
-        <div className="flex flex-row gap-5 flex-wrap items-center justify-center text-[#F9429E]">
+        <div className="flex flex-row gap-5 flex-wrap items-center justify-center text-black">
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]" Link>
             <Link to="category/Mobile Accessories">
             <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/302816080/JR/SQ/TN/101759040/8-85046-mobile-phone-accessories-png-png-download-mobile-accessories-500x500.png" className="w-60 h-36 rounded-lg" />
@@ -230,6 +231,20 @@ function Home() {
         </div>
 
       </div>
+
+      {/* Product slider 4*/}
+      <div className="flex flex-col justify-center mt-18 items-center">
+        <p className="text-[#F9429E] text-2xl font-bold text-center pb-6">
+          Buy Fresh Vegetables & Fruits
+        </p>
+        
+        <ProductSlider4 />  
+
+        
+      
+      </div>
+
+
 
       <h4 className="mt-5 mb-15">Things are to be added.....</h4>
     </div>
