@@ -1,3 +1,4 @@
+"use client";
 import { useState,useEffect,useRef} from "react"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -30,34 +31,19 @@ const ProductSlider4 = () => {
   },[])
 
   
-  useEffect(() => {
-    const swiperInstance = swiperRef.current?.swiper;
-    if (swiperInstance) {
-      swiperInstance.on("slideChange", () => {
-        setShowPrev(swiperInstance.activeIndex > 0);
-      });
-    }
-  }, []);
+  
 
   return(
     <div className="relative w-full max-w-7xl mx-auto">
-      {/* Left Arrow (Hidden Initially) */}
-      {showPrev && (
-        <button className="swiper-button-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-gray-700 text-white rounded-full shadow-md hover:bg-gray-600 transition">
-        <ChevronLeft size={20} />
-      </button>
-      )}
+      
 
       <Swiper
         ref={swiperRef}
         modules={[Navigation]}
         spaceBetween={15}
         slidesPerView={7}
-        loop={false}
-        navigation={{
-          prevEl: showPrev ? ".swiper-button-prev" : null,
-          nextEl: ".swiper-button-next",
-        }}
+        loop
+        navigation
         breakpoints={{
           320: { slidesPerView: 2 },
           640: { slidesPerView: 3 },
@@ -83,10 +69,7 @@ const ProductSlider4 = () => {
         ))}
       </Swiper>
 
-      {/* Right Arrow (Always Visible) */}
-      <button className="swiper-button-next absolute right-2 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-gray-700 text-white rounded-full shadow-md hover:bg-gray-600 transition">
-        <ChevronRight size={20} />
-      </button>
+      
     </div>
   )
 

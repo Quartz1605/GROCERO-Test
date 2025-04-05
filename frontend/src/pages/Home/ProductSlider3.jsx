@@ -121,11 +121,7 @@ export default function ProductSlider3() {
                   {product.discount} OFF
                 </span>
 
-                {/* Remove 'F' or Replace with Icon */}
-                {/* Commenting out the 'F' button to remove it */}
-                {/* <button className="absolute top-2 right-2 text-gray-600">
-                  F
-                </button> */}
+               
 
                 {/* Product Image with Frame */}
                 <div className="w-full h-full flex items-center justify-center bg-gray-100">
