@@ -53,7 +53,7 @@ const ProductSlider4 = () => {
       >
         {products.map(([name, price, status, image_path,groRates, id], index) => (
           <SwiperSlide key={index} className="p-2">
-          <div className="bg-white shadow-lg rounded-lg p-3 text-center border border-gray-200 hover:shadow-xl transition w-[150px]">
+          <div className="bg-white shadow-lg rounded-lg p-3 text-center border border-gray-200 hover:shadow-xl transition w-[150px] hover:cursor-pointer">
             <img
               src={image_path}
               alt={name}
