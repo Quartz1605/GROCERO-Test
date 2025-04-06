@@ -61,19 +61,32 @@ const ProductSlider4 = () => {
         >
           {products.map(([name, price, status, image_path, groRates, id], index) => (
             <SwiperSlide key={index} className="p-2">
-              <div className="bg-white shadow-lg rounded-lg p-3 text-center border border-gray-200 hover:shadow-xl transition w-[150px] h-[213px] hover:cursor-pointer">
+            <div className="bg-white shadow-lg rounded-lg p-3 text-center border border-gray-200 hover:shadow-xl transition w-[175px] h-[260px] hover:cursor-pointer flex flex-col justify-between">
+              
+              
+              <div>
                 <img
                   src={image_path}
                   alt={name}
                   className="w-full h-24 object-cover rounded-md"
                 />
-                <h3 className="text-[13.5px] font-semibold text-gray-800 mt-2">{name}</h3>
-                <div className="flex items-center justify-center mt-1 space-x-2">
+                <h3 className="text-[13.5px] font-semibold text-gray-800 mt-2">
+                  {name}
+                </h3>
+                <div className="flex items-center justify-center mt-1 space-x-2 h-[60px]">
                   <span className="text-md font-bold text-green-600">{groRates}</span>
                   <span className="text-xs text-gray-500 line-through">{price}</span>
                 </div>
               </div>
-            </SwiperSlide>
+          
+             
+              <button className="text-sm bg-white text-[#F9429E] px-3 py-1 rounded hover:bg-[#F9429E] hover:text-white hover:cursor-pointer transition border-2 border-[#F9429E]">
+                Add to cart
+              </button>
+              
+            </div>
+          </SwiperSlide>
+          
           ))}
         </Swiper>
       )}
