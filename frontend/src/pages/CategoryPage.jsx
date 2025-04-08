@@ -151,9 +151,7 @@ const CategoryPage = () => {
             <div className="h-0.5 w-12 bg-gradient-to-r from-[#F9429E]/70 to-transparent"></div>
           </div>
           
-          <p className="text-center text-gray-600 max-w-2xl mx-auto text-lg">
-            Discover our curated collection of high-quality {categoryName?.toLowerCase()} products at unbeatable prices
-          </p>
+          
 
           <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-1 bg-gradient-to-r from-transparent via-[#F9429E] to-transparent"></div>
         </div>
