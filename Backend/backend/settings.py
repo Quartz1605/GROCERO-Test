@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'auth_app',
     'main_app',
     'rest_framework_simplejwt.token_blacklist',
+    'flask_models'
+    
 ]
 
 AUTH_USER_MODEL = 'auth_app.User'
@@ -86,6 +88,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+
+    'flask_db': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR/'flaskBackend'/'products2.db',  
     }
 }
 

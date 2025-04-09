@@ -23,3 +23,12 @@ class Signup(models.Model):
 
     def __str__(self):
         return self.name
+    
+class CartItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product_id = models.IntegerField()
+    quantity = models.PositiveIntegerField(default=1)
+
+    def get_product(self):
+        from flask_models.models import Product
+        return Product.objects.using('flask_db').get(id=self.product_id)
