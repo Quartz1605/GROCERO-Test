@@ -15,6 +15,7 @@ import DryFruits from './pages/Dryfruits';
 import ProductDetails from './pages/productDetails';
 
 import CategoryPage from './pages/CategoryPage';
+import Cart from './pages/Cart';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +36,7 @@ function App() {
         <Route path="/home/product/:id" element={<ProductDetails />} />
         
         <Route path="/home/category/:categoryName" element={<CategoryPage />} />
+        <Route path="/home/cart" element={<Cart />} />
 
       </Routes>
     </Router>

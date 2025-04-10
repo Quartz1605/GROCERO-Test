@@ -94,9 +94,11 @@ function Home() {
 
           {/* Cart Icon */}
           <div className="flex flex-col items-center justify-center relative">
-            <button className="relative">
-              <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-3 pb-0" />
-            </button>
+            <Link to="/home/cart">
+              <button className="relative">
+                <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-3 pb-0" />
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -132,100 +134,100 @@ function Home() {
         <ProductSlider3 />
       </div>
 
-      {/* New in Store Section. */ }
+      {/* New in Store Section. */}
       <div className="mt-10">
         <p className="text-[#F9429E] text-2xl font-bold text-center pb-8 ">
           New in Store
         </p>
-        
+
         <div className="flex flex-row gap-5 flex-wrap items-center justify-center text-black">
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]" Link>
             <Link to="category/Mobile Accessories">
-            <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/302816080/JR/SQ/TN/101759040/8-85046-mobile-phone-accessories-png-png-download-mobile-accessories-500x500.png" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Mobile Accessories</p>
+              <img src="https://5.imimg.com/data5/SELLER/Default/2023/4/302816080/JR/SQ/TN/101759040/8-85046-mobile-phone-accessories-png-png-download-mobile-accessories-500x500.png" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Mobile Accessories</p>
             </Link>
 
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Home Appliances">
-            <img src="https://m.media-amazon.com/images/I/51CJZVwNaTL.jpg" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Home Appliances</p>
+            <Link to="category/Home Appliances">
+              <img src="https://m.media-amazon.com/images/I/51CJZVwNaTL.jpg" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Home Appliances</p>
 
-          </Link>
+            </Link>
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
             <Link to="category/Eyewear & More">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGkgokQWkeIrVRPnZyhMWocf70GRzDiU9Xw&s" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Eyewear & More</p>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAGkgokQWkeIrVRPnZyhMWocf70GRzDiU9Xw&s" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Eyewear & More</p>
             </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Blocks & Puzzles">
-            <img src="https://www.jiomart.com/images/product/original/rv9rzgsqoh/vastate-bricks-toys-sets-with-wheel-lego-blocks-educational-toys-for-kids-60-pcs-multicolor-product-images-orv9rzgsqoh-p607942879-0-202402121904.jpg?im=Resize=(420,420)" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Blocks & Puzzles</p>
-          </Link>
+            <Link to="category/Blocks & Puzzles">
+              <img src="https://www.jiomart.com/images/product/original/rv9rzgsqoh/vastate-bricks-toys-sets-with-wheel-lego-blocks-educational-toys-for-kids-60-pcs-multicolor-product-images-orv9rzgsqoh-p607942879-0-202402121904.jpg?im=Resize=(420,420)" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Blocks & Puzzles</p>
+            </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Bags & Accessories">
-            <img src="https://4.imimg.com/data4/DC/JE/MY-799611/canvas-backpack-1-500x500.jpg" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Bags & Accessories</p>
-          </Link>
+            <Link to="category/Bags & Accessories">
+              <img src="https://4.imimg.com/data4/DC/JE/MY-799611/canvas-backpack-1-500x500.jpg" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Bags & Accessories</p>
+            </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
             <Link to="category/Pet Treats & Toys" >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QMdQKgVvPC124Sgsy5ZIMUSCcvQCEMxDfA&s" className="w-60 h-36 mt-1" />
-            <p className="text-lg font-bold pt-2 text-center">Pet Treats & Toys</p>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QMdQKgVvPC124Sgsy5ZIMUSCcvQCEMxDfA&s" className="w-60 h-36 mt-1" />
+              <p className="text-lg font-bold pt-2 text-center">Pet Treats & Toys</p>
             </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Speakers & More" >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Ka9DpwgDGeXKRvp0f8NFUgQ8tDJ12jVnpA&s" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Speakers & More</p>
-          </Link>
+            <Link to="category/Speakers & More" >
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Ka9DpwgDGeXKRvp0f8NFUgQ8tDJ12jVnpA&s" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Speakers & More</p>
+            </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Batter Extensions" >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBozp-tQpf6msXc0Vtr5YzHubtzf9hSjgeIg&s" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Battery Extensions</p>
-          </Link>
+            <Link to="category/Batter Extensions" >
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBozp-tQpf6msXc0Vtr5YzHubtzf9hSjgeIg&s" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Battery Extensions</p>
+            </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Crafts & Hobby" >
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK4VdFLcV1dtnTu3ojguggDesuNLcnYSmaag&s" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Crafts & Hobby</p>
+            <Link to="category/Crafts & Hobby" >
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK4VdFLcV1dtnTu3ojguggDesuNLcnYSmaag&s" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Crafts & Hobby</p>
 
-          </Link>
+            </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
             <Link to="category/Kitchen Appliances">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROb5iLwNNVGuooREk-ep1I-HGvJb-m_rwe0w&s" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Kitchen Appliances</p>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROb5iLwNNVGuooREk-ep1I-HGvJb-m_rwe0w&s" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Kitchen Appliances</p>
             </Link>
 
           </div>
 
           <div className="h-[208px] w-[216px] rounded-lg border-y-2 border-x-1 hover:cursor-pointer border-[#cfcfcf]">
-          <Link to="category/Cards & Board Games">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7vpRSB_bwWsKlqX_QTQLOCAM-QyMZYoFSQ&s" className="w-60 h-36 rounded-lg" />
-            <p className="text-lg font-bold pt-2 text-center">Cards & Board Games</p>
-          </Link>
+            <Link to="category/Cards & Board Games">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe7vpRSB_bwWsKlqX_QTQLOCAM-QyMZYoFSQ&s" className="w-60 h-36 rounded-lg" />
+              <p className="text-lg font-bold pt-2 text-center">Cards & Board Games</p>
+            </Link>
 
           </div>
         </div>
@@ -237,11 +239,11 @@ function Home() {
         <p className="text-[#F9429E] text-2xl font-bold text-center pb-6">
           Buy Fresh Vegetables & Fruits
         </p>
-        
-        <ProductSlider4 />  
 
-        
-      
+        <ProductSlider4 />
+
+
+
       </div>
 
 

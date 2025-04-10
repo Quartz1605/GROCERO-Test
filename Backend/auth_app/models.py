@@ -23,12 +23,19 @@ class Signup(models.Model):
 
     def __str__(self):
         return self.name
+
     
-class CartItem(models.Model):
+class CartItems(models.Model):
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product_id = models.IntegerField()
+    
+    name  = models.CharField(max_length=200)
+    price = models.CharField(max_length=20)
+    
+    groRates = models.CharField(max_length=20)
+    img_path = models.TextField()
     quantity = models.PositiveIntegerField(default=1)
 
-    def get_product(self):
-        from flask_models.models import Product
-        return Product.objects.using('flask_db').get(id=self.product_id)
+
+    def __str__(self):
+        return f"{self.user.username} - Product name {self.name} x{self.quantity}"
