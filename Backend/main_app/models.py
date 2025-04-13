@@ -1,11 +1,13 @@
 from django.db import models
 
-# Create your models here.
 class Product(models.Model):
-    productID = models.IntegerField()
-    productName = models.CharField(max_length=100)
-    price = models.FloatField()
-    imgPath = models.URLField(max_length=150)
+    prodID = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    price = models.CharField(max_length=20)
+    category = models.CharField(max_length=100)
+    last_updated = models.DateTimeField(null=True) 
+    image_path = models.TextField(db_column='img_path', null=True, blank=True)
+    groRates = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.productName
+        return self.name
