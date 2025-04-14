@@ -20,6 +20,8 @@ const CategoryPage = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [favoriteItems, setFavoriteItems] = useState([]);
 
+  const [quantities, setQuantities] = useState({});
+
   const toggleFavorite = (id) => {
     if (favoriteItems.includes(id)) {
       setFavoriteItems(favoriteItems.filter(item => item !== id));
@@ -45,7 +47,7 @@ const CategoryPage = () => {
   const addToCart = async () => {
 
     const token = localStorage.getItem("access_token");
-    
+
     try {
       console.log("Hello")
       console.log(JSON.stringify(cartItems));
@@ -233,8 +235,22 @@ const CategoryPage = () => {
                     className={`absolute bottom-4 inset-x-0 mx-auto text-center transition-all duration-500 ${hoveredCard === String(id) ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                       }`}
                   >
+
+                    <div className="mb-3 flex justify-center items-center gap-2">
+
+                    </div>
                     <button
-                      onClick={() => setCartItems([...cartItems, { "name": String(name), "price": price, "groRates": groRates, "img_path": String(image_path) }])}
+                      onClick={() =>
+                        setCartItems([
+                          ...cartItems,
+                          {
+                            name: String(name),
+                            price: price,
+                            groRates: groRates,
+                            img_path: String(image_path),
+                            quantity: quantities[name] || 1
+                          }
+                        ])}
                       className="bg-white text-[#F9429E] px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 mx-auto hover:bg-[#F9429E] hover:text-white transition-all duration-300 shadow-lg"
                     >
                       <ShoppingCart size={16} />
@@ -248,6 +264,29 @@ const CategoryPage = () => {
                   {/* Product title with elegant typography */}
                   <h3 className="font-semibold text-gray-800 text-lg mb-1 truncate">{name}</h3>
                   <p className="text-xs text-gray-500 mb-5">Premium Quality • 500g</p>
+
+                  <div className="flex flex-row gap-x-2 mb-4">
+                    <label htmlFor={`qty-${name}`} className="text-sm text-gray-600 ml-1">Qty:</label>
+                    <input
+                      id={`qty-${name}`}
+                      type="number"
+                      min="1"
+                      max="1000"
+                      value={quantities[name] || 1}
+                      onChange={(e) =>
+                        setQuantities((prev) => ({
+                          ...prev,
+                          [name]: parseInt(e.target.value)
+                        }))
+                      }
+                      className="appearance-none w-14 text-center border rounded-lg px-0 py-1 text-sm outline-none focus:ring-2 focus:ring-[#F9429E]/50 hover:cursor-pointer pr-3"
+                      style={{
+                        background: "linear-gradient(135deg, #fff8fa 0%, #fff5f8 100%)",
+                        borderColor: "rgba(249, 66, 158, 0.15)"
+                      }}
+                    />
+                    
+                  </div>
 
                   {/* Price comparison section with luxury card design */}
                   <div className="space-y-4 relative">
@@ -295,23 +334,7 @@ const CategoryPage = () => {
                       </div>
                     </div>
 
-                    {/* Savings badge with premium animation */}
-                    {price && groRates &&
-                      !isNaN(Number(price.replace('$', ''))) &&
-                      !isNaN(Number(groRates.replace('$', ''))) &&
-                      Number(price.replace('$', '')) > Number(groRates.replace('$', '')) && (
-                        <div
-                          className="absolute -right-3 -top-8 px-3 py-1.5 rounded-full transform rotate-6 shadow-xl animate-pulse"
-                          style={{
-                            background: "linear-gradient(135deg, #2cf005 0%, #1db300 100%)"
-                          }}
-                        >
-                          <span className="text-white text-xs font-bold">
-                            Save ${(Number(price.replace('$', '')) - Number(groRates.replace('$', ''))).toFixed(2)}
-                          </span>
-                        </div>
-                      )
-                    }
+
                   </div>
 
                   {/* Premium badge */}

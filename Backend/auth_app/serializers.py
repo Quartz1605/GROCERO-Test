@@ -52,7 +52,7 @@ class CartItemSerializer(serializers.ModelSerializer):
 class CartItemDisplaySerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItems
-        fields = ['name','price','groRates','img_path']
+        fields = ['name','price','groRates','img_path','quantity']
 
 
     

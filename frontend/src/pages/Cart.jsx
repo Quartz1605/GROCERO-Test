@@ -11,7 +11,7 @@ const Cart = () => {
   const { user } = useContext(UserContext)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
-  
+
 
   const [items, setItems] = useState([])
 
@@ -170,7 +170,11 @@ const Cart = () => {
               <div className="p-4">
                 {/* Product title with elegant typography */}
                 <h3 className="font-semibold text-gray-800 text-base mb-0.5 truncate">{item.name}</h3>
-                <p className="text-xs text-gray-500 mb-3">Premium Quality • 500g</p>
+
+                <div className="flex flex-row gap-x-7 mt-2">
+                  <p className="text-xs text-gray-500 mb-3">Premium Quality • 500g</p>
+                  <p className="text-[14px] text-white font-medium mb-3 bg-[#fb61ae] rounded-lg px-[4px] py-[4px]">Quantity : {item.quantity}</p>
+                </div>
 
                 {/* Price comparison section with luxury card design */}
                 <div className="space-y-3 relative">
@@ -196,8 +200,8 @@ const Cart = () => {
                     </div>
                   </div>
 
-                  
-                  
+
+
 
 
 

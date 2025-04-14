@@ -82,9 +82,5 @@ class CartItemViewSet(APIView):
 def cart_list(request):
     items = CartItems.objects.all()
     serializer = CartItemDisplaySerializer(items,many=True)
-
+    
     return Response(serializer.data)
-
-
-
-
