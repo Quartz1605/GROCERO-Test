@@ -29,6 +29,7 @@ class CartItems(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
+    id = models.CharField(max_length=10000,primary_key=True)
     name  = models.CharField(max_length=200)
     price = models.CharField(max_length=20)
     

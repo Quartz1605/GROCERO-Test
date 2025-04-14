@@ -1,6 +1,6 @@
 from django.urls import path,include
 from rest_framework_simplejwt.views import TokenRefreshView
-from .views import MyTokenObtainPairView, RegisterView, UserDetailView,CartItemViewSet,cart_list
+from .views import MyTokenObtainPairView, RegisterView, UserDetailView,CartItemViewSet,cart_list,CartItemDeleteView
 
 
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('user/', UserDetailView.as_view(), name='user-detail'),
     path('cart/',CartItemViewSet.as_view(),name='cart-system'),
-    path('cart-list/',cart_list,name="cart-list")
+    path('cart-list/',cart_list,name="cart-list"),
+    path('cart/delete/<int:item_id>',CartItemDeleteView.as_view(),name="cart-item-delete"),
     
 ]

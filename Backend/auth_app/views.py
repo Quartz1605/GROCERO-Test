@@ -84,3 +84,16 @@ def cart_list(request):
     serializer = CartItemDisplaySerializer(items,many=True)
     
     return Response(serializer.data)
+
+
+class CartItemDeleteView(APIView):
+
+    def delete(self,request,item_id):
+        try:
+            cart_item = CartItems.objects.get(id=item_id,user=request.user)
+            cart_item.delete()
+            return Response({"message" : "Item successfully deleted."},status=status.HTTP_200_OK)
+        
+        except CartItems.DoesNotExist:
+            return Response({"message" : "Item does not exist in cart."},status=status.HTTP_404_NOT_FOUND)
+

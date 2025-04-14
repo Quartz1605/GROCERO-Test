@@ -188,7 +188,7 @@ const CategoryPage = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {products.map(([name, price, status, image_path, groRates, id]) => (
+            {products.map(([id,name, price, status, image_path, groRates]) => (
               <div
                 key={id}
                 className="relative bg-white rounded-2xl overflow-hidden transition-all duration-500 group hover:shadow-[0_20px_50px_rgba(249,66,158,0.2)] transform hover:-translate-y-2"
@@ -243,7 +243,8 @@ const CategoryPage = () => {
                       onClick={() =>
                         setCartItems([
                           ...cartItems,
-                          {
+                          { 
+                            id : id,
                             name: String(name),
                             price: price,
                             groRates: groRates,

@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react"
 import UserContext from "../../contexts/UserContext";
 import { data, Link, useNavigate } from "react-router-dom";
 import UserLocation from "./Home/UserLocation";
-import { MapPin, Heart } from "lucide-react";
+import { MapPin, Heart, ShoppingCart } from "lucide-react";
 
 const Cart = () => {
 
@@ -39,6 +39,31 @@ const Cart = () => {
       isMounted = false; // cleanup when component unmounts
     };
   }, []);
+
+  const removeFromCart = async(itemId) => {
+    const token = localStorage.getItem("access_token");
+  
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/auth/cart/delete/${itemId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data.message);
+  
+        // Remove from local cart state
+        setItems(prevItems => prevItems.filter(item => item.id !== itemId));
+      } else {
+        console.error("Backend error:", data.error);
+      }
+    } catch (error) {
+      console.error("Error deleting cart item:", error);
+    }
+  };
 
 
 
@@ -140,7 +165,7 @@ const Cart = () => {
           {items.map((item, index) => (
             <div
               className="relative bg-white rounded-xl overflow-hidden transition-all duration-500 group hover:shadow-[0_15px_30px_rgba(249,66,158,0.2)] transform hover:-translate-y-2"
-              onMouseEnter={() => setHoveredCard(String(id))}
+              onMouseEnter={() => setHoveredCard(String(item.id))}
               onMouseLeave={() => setHoveredCard(null)}
               style={{
                 boxShadow: "rgba(0, 0, 0, 0.05) 0px 8px 20px",
@@ -160,6 +185,22 @@ const Cart = () => {
                 {/* Elegant gradient overlay effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
+                <div className="absolute bottom-0 left-0 right-0 p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+                  <button
+                    onClick={() => {removeFromCart(item.id)}}
+                    className="py-2 px-4 flex items-center justify-center rounded-xl bg-white/90 backdrop-blur-sm transition-all duration-300 hover:bg-white ml-13 hover:cursor-pointer"
+                    style={{
+                      border: "1px solid rgba(249, 66, 158, 0.3)",
+                      boxShadow: "0 4px 12px rgba(249, 66, 158, 0.15)"
+                    }}
+                  >
+                    <span className="text-sm font-medium text-[#F9429E] mr-2 text-center ">Remove from Cart</span>
+                    
+                  </button>
+                </div>
+
+
+
                 {/* Product badge in top corner */}
                 <div className="absolute top-3 right-3 bg-white/90 px-2 py-1 rounded-full text-xs font-medium text-[#F9429E] shadow-sm backdrop-blur-sm">
                   Premium
@@ -171,9 +212,9 @@ const Cart = () => {
                 {/* Product title with elegant typography */}
                 <h3 className="font-semibold text-gray-800 text-base mb-0.5 truncate">{item.name}</h3>
 
-                <div className="flex flex-row gap-x-7 mt-2">
+                <div className="flex flex-col gap-x-7 mt-2">
                   <p className="text-xs text-gray-500 mb-3">Premium Quality • 500g</p>
-                  <p className="text-[14px] text-white font-medium mb-3 bg-[#fb61ae] rounded-lg px-[4px] py-[4px]">Quantity : {item.quantity}</p>
+                  <p className="text-[14px] text-gray-500 font-medium mb-3">Quantity : <b className="bg-[#ffcfe7] px-3 py-1 rounded-lg text-black">{item.quantity}</b></p>
                 </div>
 
                 {/* Price comparison section with luxury card design */}
@@ -199,6 +240,8 @@ const Cart = () => {
                       <img src={groLogo} alt="Logo" className="h-6 w-12 rounded-lg object-contain" />
                     </div>
                   </div>
+
+
 
 
 
