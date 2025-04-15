@@ -18,9 +18,17 @@ const Cart = () => {
   useEffect(() => {
     let isMounted = true;
 
+    const token = localStorage.getItem("access_token") 
     const getItems = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/auth/cart-list/');
+        const response = await fetch('http://127.0.0.1:8000/api/auth/cart-list/',{
+          "method" : "GET",
+          "headers" : {
+            "Content-type" : "application/json",
+            "authorization" : `Bearer ${token}`
+          }
+        }
+        );
         const data = await response.json();
 
         if (isMounted) {
@@ -93,7 +101,7 @@ const Cart = () => {
     const itemSubtotal = subtotal
 
     return (
-      0.05*itemSubtotal
+      Math.round(0.05*itemSubtotal)
     )
   }
 
@@ -325,15 +333,15 @@ const Cart = () => {
                 {/* Price breakdown */}
                 <div className="space-y-3 mb-6 pt-2">
                   <div className="flex justify-between text-gray-600">
-                    <span>Subtotal</span>
+                    <span>Subtotal : </span>
                     <span className="font-medium">{formatCurrency(calculateSubtotal())}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
-                    <span>Shipping</span>
+                    <span>Shipping (5% of bill amount) :</span>
                     <span className="font-medium">{formatCurrency(calculateShipping(calculateSubtotal()))}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
-                    <span>Tax</span>
+                    <span>Tax (18% of bill amount) :</span>
                     <span className="font-medium">{formatCurrency(calculateTax(calculateSubtotal()))}</span>
                   </div>
                   <div className="flex justify-between text-gray-800 font-bold text-lg pt-3 border-t border-gray-100">

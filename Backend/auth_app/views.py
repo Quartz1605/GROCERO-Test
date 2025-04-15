@@ -6,6 +6,7 @@ from .models import User,CartItems
 from .serializers import RegisterSerializer, UserSerializer, MyTokenObtainPairSerializer,CartItemSerializer,CartItemDisplaySerializer
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
+from django.contrib.auth import get_user
 
 
 # 🔹 Custom JWT Authentication View (Login)
@@ -80,7 +81,9 @@ class CartItemViewSet(APIView):
 
 @api_view(['GET'])
 def cart_list(request):
-    items = CartItems.objects.all()
+
+    user = request.user
+    items = CartItems.objects.filter(user=user)
     serializer = CartItemDisplaySerializer(items,many=True)
     
     return Response(serializer.data)
