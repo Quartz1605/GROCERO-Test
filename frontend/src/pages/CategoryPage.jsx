@@ -44,33 +44,43 @@ const CategoryPage = () => {
     fetchProducts();
   }, [categoryName]);
 
-  const addToCart = async () => {
-
+  
+  {/* Add to cart function */}
+  const addToCart = async (id, name, price, groRates, image_path) => {
+    const item = {
+      id: id,
+      name: String(name),
+      price: price,
+      groRates: groRates,
+      img_path: String(image_path),
+      quantity: quantities[name] || 1
+    };
+  
+    
+    setCartItems(prev => [...prev, item]);
+  
     const token = localStorage.getItem("access_token");
-
+  
     try {
-      console.log("Hello")
-      console.log(JSON.stringify(cartItems));
+      console.log("Sending item:", item);
       const response = await fetch('http://127.0.0.1:8000/api/auth/cart/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-
-        body: JSON.stringify(cartItems)
+        body: JSON.stringify([item])  
       });
-
+  
       const data = await response.json();
       console.log('Cart successfully sent:', data);
-    }
-
-    catch (error) {
+    } catch (error) {
       console.error('Error adding to cart:', error);
     }
   };
+  
 
-
+  
   return (
     <div className="bg-white h-screen flex flex-col">
       <div className="flex flex-row justify-between top-0 left-0 right-0 h-20 items-center fixed z-50 bg-gradient-to-b from-[#ff9bcd] to-[#ffffff] backdrop:blur-xl">
@@ -150,7 +160,7 @@ const CategoryPage = () => {
           {/* Cart Icon */}
           <div className="flex flex-col items-center justify-center relative">
             <Link to="/home/cart/">
-              <button className="relative" onClick={addToCart}>
+              <button className="relative">
                 <GiShoppingCart className="text-[#F9429E] h-10 w-12 hover:cursor-pointer ml-3 pb-0" />
               </button>
             </Link>
@@ -240,18 +250,10 @@ const CategoryPage = () => {
 
                     </div>
                     <button
-                      onClick={() =>
-                        setCartItems([
-                          ...cartItems,
-                          { 
-                            id : id,
-                            name: String(name),
-                            price: price,
-                            groRates: groRates,
-                            img_path: String(image_path),
-                            quantity: quantities[name] || 1
-                          }
-                        ])}
+                      onClick={() => {
+                        addToCart(id,name,price,groRates,image_path);
+                      }
+                    }
                       className="bg-white text-[#F9429E] px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 mx-auto hover:bg-[#F9429E] hover:text-white transition-all duration-300 shadow-lg"
                     >
                       <ShoppingCart size={16} />
