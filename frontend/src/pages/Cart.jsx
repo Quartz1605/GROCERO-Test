@@ -92,7 +92,7 @@ const Cart = () => {
     const itemSubtotal = subtotal
 
     return(
-      0.18*itemSubtotal
+      Math.round(0.18*itemSubtotal)
     )
 
   }
