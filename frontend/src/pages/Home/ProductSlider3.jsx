@@ -15,7 +15,7 @@ export default function ProductSlider3() {
       discount: "60%",
       originalPrice: "1999",
       discountedPrice: "1199",
-      image: "https://example.com/power-bank.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqpqdZrxO6szjX2R9gAzeAyMqUbx1p6sTQ7Q&s",
       alt: "Power Bank",
     },
     {
@@ -24,7 +24,7 @@ export default function ProductSlider3() {
       discount: "50%",
       originalPrice: "999",
       discountedPrice: "499",
-      image: "https://example.com/charger.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNwLWokDmX5x9K4Y7hACGzITNhznrNt9YMIA&s",
       alt: "Charger",
     },
     {
@@ -33,7 +33,7 @@ export default function ProductSlider3() {
       discount: "30%",
       originalPrice: "299",
       discountedPrice: "209",
-      image: "https://example.com/usb-cable.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxbG1SB57mb12GamI0ujzuzcThjrdatOUInA&s",
       alt: "USB Cable",
     },
     {
@@ -42,7 +42,7 @@ export default function ProductSlider3() {
       discount: "40%",
       originalPrice: "1499",
       discountedPrice: "899",
-      image: "https://example.com/wireless-charger.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc5r9UoFYqCZpbt9SDGYKu5GpXhiAEiTz1CA&s",
       alt: "Wireless Charger",
     },
     {
@@ -51,7 +51,7 @@ export default function ProductSlider3() {
       discount: "25%",
       originalPrice: "799",
       discountedPrice: "599",
-      image: "https://example.com/usb-hub.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlTzXaMHfF4Lq_-N93gKkBf9Jb5lkMNeHgLQ&s",
       alt: "USB Hub",
     },
     {
@@ -81,7 +81,7 @@ export default function ProductSlider3() {
       discount: "10%",
       originalPrice: "899",
       discountedPrice: "809",
-      image: "https://example.com/emergency-light.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz-LyR_HvE40mhGf_I4NqgT277vjDT5XE_Hw&s",
       alt: "Emergency Light",
     },
     {
@@ -90,7 +90,7 @@ export default function ProductSlider3() {
       discount: "30%",
       originalPrice: "499",
       discountedPrice: "349",
-      image: "https://example.com/extension-cord.jpg",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHRe08JBSpsZE3Ei6QF74WaMs2wMjVcPjflg&s",
       alt: "Extension Cord",
     },
   ];

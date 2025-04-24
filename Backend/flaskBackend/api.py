@@ -10,14 +10,14 @@ def get_products(category=None):
     cursor = conn.cursor()
 
     if category:
-        cursor.execute("SELECT name, price,img_path,groRates FROM products WHERE category = ? ORDER BY last_updated DESC", (category,))
+        cursor.execute("SELECT id,name, price,img_path,groRates FROM products WHERE category = ? ORDER BY last_updated DESC", (category,))
     else:
-        cursor.execute("SELECT name, price,img_path,groRates FROM products ORDER BY last_updated DESC")
+        cursor.execute("SELECT id,name, price,img_path,groRates FROM products ORDER BY last_updated DESC")
     
     products = cursor.fetchall()
     
     formatted_products = []
-    for name, price,img_path,groRates in products:
+    for id,name, price,img_path,groRates in products:
         cursor.execute("SELECT price FROM products WHERE name = ? ORDER BY last_updated DESC LIMIT 2", (name,))
         price_history = cursor.fetchall()
 
@@ -27,7 +27,7 @@ def get_products(category=None):
         else:
             status = None
 
-        formatted_products.append([name, price, status,img_path,groRates])
+        formatted_products.append([id,name, price, status,img_path,groRates])
 
     conn.close()
     return formatted_products

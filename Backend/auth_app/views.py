@@ -1,9 +1,12 @@
-from rest_framework import generics, status
+from rest_framework import generics, status,viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .models import User
-from .serializers import RegisterSerializer, UserSerializer, MyTokenObtainPairSerializer
+from .models import User,CartItems
+from .serializers import RegisterSerializer, UserSerializer, MyTokenObtainPairSerializer,CartItemSerializer,CartItemDisplaySerializer
+from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from django.contrib.auth import get_user
 
 
 # 🔹 Custom JWT Authentication View (Login)
@@ -52,5 +55,48 @@ class UserDetailView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user  # Returns the logged-in user's details
+    
 
+## CartSystem view
+
+class CartItemViewSet(APIView):
+    def post(self,request):
+        cart_items = request.data
+
+        if isinstance(cart_items,list):
+            
+            for item in cart_items:
+                item["user"] = request.user.id
+            
+            serializer = CartItemSerializer(data=cart_items,many=True)
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response({"error": "Expected a list of cart items"}, status=status.HTTP_400_BAD_REQUEST)
+    
+
+@api_view(['GET'])
+def cart_list(request):
+
+    user = request.user
+    items = CartItems.objects.filter(user=user)
+    serializer = CartItemDisplaySerializer(items,many=True)
+    
+    return Response(serializer.data)
+
+
+class CartItemDeleteView(APIView):
+
+    def delete(self,request,item_id):
+        try:
+            cart_item = CartItems.objects.get(id=item_id,user=request.user)
+            cart_item.delete()
+            return Response({"message" : "Item successfully deleted."},status=status.HTTP_200_OK)
+        
+        except CartItems.DoesNotExist:
+            return Response({"message" : "Item does not exist in cart."},status=status.HTTP_404_NOT_FOUND)
 

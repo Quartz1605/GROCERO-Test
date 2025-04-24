@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import User
+from .models import User,CartItems
 from django.contrib.auth.password_validation import validate_password
 
 class UserSerializer(serializers.ModelSerializer):
@@ -40,4 +40,19 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+    
+
+class CartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        
+        model = CartItems
+        fields = '__all__'
+
+
+class CartItemDisplaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItems
+        fields = ['id','name','price','groRates','img_path','quantity']
+
+
     

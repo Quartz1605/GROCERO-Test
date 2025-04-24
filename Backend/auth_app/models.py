@@ -23,3 +23,20 @@ class Signup(models.Model):
 
     def __str__(self):
         return self.name
+
+    
+class CartItems(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    id = models.CharField(max_length=10000,primary_key=True)
+    name  = models.CharField(max_length=200)
+    price = models.CharField(max_length=20)
+    
+    groRates = models.CharField(max_length=20)
+    img_path = models.TextField()
+    quantity = models.PositiveIntegerField(default=1)
+
+
+    def __str__(self):
+        return f"{self.user.username} - Product name {self.name} x{self.quantity}"
