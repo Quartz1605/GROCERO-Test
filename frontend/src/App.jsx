@@ -16,6 +16,7 @@ import ProductDetails from './pages/productDetails';
 
 import CategoryPage from './pages/CategoryPage';
 import Cart from './pages/Cart';
+import Search from './pages/SearchBox';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,6 +38,7 @@ function App() {
         
         <Route path="/home/category/:categoryName" element={<CategoryPage />} />
         <Route path="/home/cart" element={<Cart />} />
+        <Route path="/home/search" element={<Search />} />
 
       </Routes>
     </Router>

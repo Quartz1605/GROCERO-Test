@@ -39,15 +39,14 @@ function Home() {
 
               {/* Search Bar */}
 
-              <div className="relative w-full max-w-screen">
-                <IoSearch className="text-[#F9429E] w-6 h-6 absolute left-4 top-1/2 transform -translate-y-1/2" />
-                <input
-                  className="w-full pl-12 bg-gray-50 rounded-lg h-12 text-gray-800 px-4 outline-none border border-gray-200 focus:border-[#F9429E] focus:ring-1 focus:ring-[#ffb6c1] transition duration-300"
-                  type="text"
-                  placeholder="Looking for?"
-                  required
-                />
-              </div>
+              <Link to="/home/search/" className="block w-full">
+                <div
+                  className="w-full max-w-screen relative pl-12 bg-gray-50 rounded-lg h-12 text-gray-800 px-4 flex items-center border border-gray-200 hover:border-[#F9429E] hover:ring-1 hover:ring-[#ffb6c1] cursor-pointer transition duration-300"
+                >
+                  <IoSearch className="text-[#F9429E] w-6 h-6 absolute left-4 top-1/2 transform -translate-y-1/2" />
+                  <span className="text-gray-500">Looking for?</span>
+                </div>
+              </Link>
 
 
 

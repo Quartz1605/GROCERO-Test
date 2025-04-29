@@ -5,6 +5,7 @@ from django.db.models import Q
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import SearchSerializer
+from .serializers import SearchStoreSerializer
 
 # Create your views here.
 
@@ -12,10 +13,23 @@ class SearchView(APIView):
   
   def get(self,request):
 
+
+
     query = request.GET.get('q','')
+    user = request.user.id
+
+    
     
 
     if query:
+      serializer = SearchStoreSerializer(data=[{
+      "user" : user,
+      "search" : query,
+      }],many=True)
+
+      if serializer.is_valid():
+        serializer.save()
+        
       product = Product.objects.filter(
         Q(name__icontains=query)
       )
@@ -26,6 +40,17 @@ class SearchView(APIView):
     
     else:
       return Response({"message" : "Query object not found"},status=status.HTTP_400_BAD_REQUEST)
+    
+
+  
+
+    
+
+
+
+
+
+
     
     
     

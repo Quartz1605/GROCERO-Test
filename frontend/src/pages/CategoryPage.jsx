@@ -9,6 +9,7 @@ import { Search, MapPin, ShoppingCart, User, Heart } from 'lucide-react';//for i
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import zeptoLogo from "../assets/finalZepto.png"
+import Header from "./Home/Header";
 
 
 const CategoryPage = () => {
